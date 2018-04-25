@@ -1,0 +1,7 @@
+*.log
+os
+hw/Bitstreams
+hw/Checkpoint
+hw/Implement
+hw/Synth
+
