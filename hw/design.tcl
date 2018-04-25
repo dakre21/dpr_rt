@@ -12,7 +12,7 @@ set rt     0
 set device "xc7z020"
 set part   "clg400"
 set speed  "-1"
-set part ${device}${part}${speed}
+set part   ${device}${part}${speed}
 
 #Define location for "Tcl" directory. Defaults to "./tcl_HD"
 if {[file exists "./Tcl_HD"]} { 
