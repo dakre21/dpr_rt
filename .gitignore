@@ -1,6 +1,7 @@
 *.log
 *.os
 *.jou
+*.Xil
 os
 hw/Bitstreams
 hw/Checkpoint

@@ -58,7 +58,7 @@ set module4_inst "sha"
 ### Configuration (Implementation) Definition - Replicate for each Config
 ########################################################################
 set state "implement"
-set config "Config_${variant1}_${variant2}_${variant3}_${variant4}_${state}" 
+set config "Config_${module1_inst}_${module2_inst}_${module3_inst}_${module4_inst}_${state}" 
 
 add_implementation $config
 set_attribute impl $config top             $top
