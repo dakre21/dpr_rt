@@ -1,4 +1,5 @@
 *.log
+*.os
 os
 hw/Bitstreams
 hw/Checkpoint

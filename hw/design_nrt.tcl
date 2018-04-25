@@ -16,7 +16,7 @@ set_attribute module $variant moduleName   $module
 set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
 set_attribute module $variant synth        ${run.rmSynth}
 
-set module1_inst "inst_blob_merge"
+set module1_inst "bm"
 
 # RP2
 set module  "diffeq_paj_convert"
@@ -28,7 +28,7 @@ set_attribute module $variant moduleName   $module
 set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
 set_attribute module $variant synth        ${run.rmSynth}
 
-set module2_inst "inst_diffeq1"
+set module2_inst "dq1"
 
 # RP3
 set module  "diffeq_f_systemC"
@@ -40,7 +40,7 @@ set_attribute module $variant moduleName   $module
 set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
 set_attribute module $variant synth        ${run.rmSynth}
 
-set module3_inst "inst_diffeq2"
+set module3_inst "dq2"
 
 # RP4
 set module  "sha1"
@@ -52,7 +52,7 @@ set_attribute module $variant moduleName   $module
 set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
 set_attribute module $variant synth        ${run.rmSynth}
 
-set module4_inst "inst_sha"
+set module4_inst "sha"
 
 ########################################################################
 ### Configuration (Implementation) Definition - Replicate for each Config
