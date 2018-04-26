@@ -3,6 +3,8 @@
 *.jou
 *.Xil
 *.str
+*.html
+*.xml
 os
 hw/Bitstreams
 hw/Checkpoint
