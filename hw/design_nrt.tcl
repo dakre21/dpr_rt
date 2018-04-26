@@ -6,53 +6,36 @@
 ### RP Module Definitions - Note RM to RP is 1:1 for non-rt
 ####################################################################
 
+proc synth_module { variant module rtlDir run.rmSynth } {
+  add_module $variant
+  set_attribute module $variant moduleName   $module
+  set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
+  set_attribute module $variant synth        ${run.rmSynth}
+}
+
 # RP1
 set module   "RLE_BlobMerging"
-set variant  "blob_merge"
-set variant1 $variant
-
-add_module $variant
-set_attribute module $variant moduleName   $module
-set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
-set_attribute module $variant synth        ${run.rmSynth}
-
+set variant1 "blob_merge"
 set module1_inst "bm"
+synth_module $variant1 $module $rtlDir ${run.rmSynth}
 
 # RP2
 set module  "diffeq_paj_convert"
-set variant "diffeq1"
-set variant2 $variant
-
-add_module $variant
-set_attribute module $variant moduleName   $module
-set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
-set_attribute module $variant synth        ${run.rmSynth}
-
+set variant2 "diffeq1"
 set module2_inst "dq1"
+synth_module $variant2 $module $rtlDir ${run.rmSynth}
 
 # RP3
 set module  "diffeq_f_systemC"
-set variant "diffeq2"
-set variant3 $variant
-
-add_module $variant
-set_attribute module $variant moduleName   $module
-set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
-set_attribute module $variant synth        ${run.rmSynth}
-
+set variant3 "diffeq2"
 set module3_inst "dq2"
+synth_module $variant3 $module $rtlDir ${run.rmSynth}
 
 # RP4
 set module  "sha1"
-set variant "sha"
-set variant4 $variant
-
-add_module $variant
-set_attribute module $variant moduleName   $module
-set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
-set_attribute module $variant synth        ${run.rmSynth}
-
+set variant4 "sha"
 set module4_inst "sha"
+synth_module $variant4 $module $rtlDir ${run.rmSynth}
 
 ########################################################################
 ### Configuration (Implementation) Definition - Replicate for each Config

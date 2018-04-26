@@ -2,9 +2,9 @@
 *.os
 *.jou
 *.Xil
+*.str
 os
 hw/Bitstreams
 hw/Checkpoint
 hw/Implement
 hw/Synth
-
