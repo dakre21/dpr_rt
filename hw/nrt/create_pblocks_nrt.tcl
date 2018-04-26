@@ -111,7 +111,12 @@ set_property SNAPPING_MODE ON [get_pblocks pblock_sub_1]
 report_drc -name drc_1 -ruledecks {opt_checks router_checks placer_checks}
 
 # Write to constraints file
-write_xdc -force ./Sources/xdc/top_all.xdc
+write_xdc -force ./Sources/xdc/top_all_nrt.xdc
 
 # Run flow
-run_flow $timing_nrt $utilization_nrt $checkpoint_nrt
+run_flow 
+
+# Save off results
+write_checkpoint -force $checkpoint_nrt
+report_utilization -file $utilization_nrt
+report_timing_summary -file $timing_nrt

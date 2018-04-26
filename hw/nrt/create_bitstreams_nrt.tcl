@@ -25,11 +25,13 @@ lock_design -level routing
 
 # Write checkpoint
 write_checkpoint -force Checkpoint/static_route_design_nrt.dcp
-close_design
+close_project
 
-# Part 2 - Create configuration(s) (only one in NRT case)
+# Re-open project
+create_project -in_memory -part ${part}
 add_files ./Checkpoint/static_route_design_nrt.dcp
 load_all_dcps
 link_full_design
-run_flow 
-
+write_checkpoint -force $checkpoint_nrt
+report_utilization -file $utilization_nrt
+report_timing_summary -file $timing_nrt

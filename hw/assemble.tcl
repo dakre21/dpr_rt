@@ -3,18 +3,21 @@
 
 source utils.tcl
 
+proc load_constraints { synth } {
+  # Load top constraints
+  add_files ./Synth/Static/$synth
+  add_files ./Sources/xdc/top_io.xdc
+  set_propert USED_IN {implementation} [get_files ./Sources/xdc/top_io.xdc]
+}
+
 # Create project in mem
 create_project -in_memory -part ${part}
-
-# Load top constraints
-add_files ./Synth/Static/top_synth.dcp
-add_files ./Sources/xdc/top_io.xdc
-set_propert USED_IN {implementation} [get_files ./Sources/xdc/top_io.xdc]
+load_constraints top_synth.dcp
 
 # Follow assemble flow for either RT or Non-rt
 if { $rt == 0 } {
   load_all_dcps
-  link_full_design
+  link_full_design $part
   set_all_cells_reconfig
 
   # Save off configuration

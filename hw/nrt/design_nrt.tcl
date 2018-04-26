@@ -6,13 +6,6 @@
 ### RP Module Definitions - Note RM to RP is 1:1 for non-rt
 ####################################################################
 
-proc synth_module { variant module rtlDir run.rmSynth } {
-  add_module $variant
-  set_attribute module $variant moduleName   $module
-  set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
-  set_attribute module $variant synth        ${run.rmSynth}
-}
-
 # RP1
 set module   "ADD"
 set variant1 "add"

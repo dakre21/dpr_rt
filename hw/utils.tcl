@@ -7,6 +7,13 @@ set part   "clg400"
 set speed  "-1"
 set part   ${device}${part}${speed}
 
+proc synth_module { variant module rtlDir run.rmSynth } {
+  add_module $variant
+  set_attribute module $variant moduleName   $module
+  set_attribute module $variant vlog         [list $rtlDir/$variant/$variant.v]
+  set_attribute module $variant synth        ${run.rmSynth}
+}
+
 proc load_all_dcps { } {
   # Add all of the partials generated from synthesis
   add_files ./Synth/add/ADD_synth.dcp
@@ -53,21 +60,16 @@ proc set_all_cells_reconfig { } {
   set_property HD.RECONFIGURABLE 1 [get_cells sub_1]
 }
 
-proc link_full_design { } {
+proc link_full_design { part } {
   # Link the design together
-  link_design -mode default -reconfig_partitions { add_1 COMP DEC DIV INC MOD MUL MUX2x1 REG SHL SHR SUB } -part ${part} -top top
+  link_design -mode default -reconfig_partitions { add_1 comp_1 dec_1 div_1 inc_1 mod_1 mul_1 mux_1 reg_1 shl_1 shr_1 sub_1 } -part ${part} -top top
 }
 
-proc run_flow { timing, utilization, checkpoint } {
+proc run_flow { } {
   # Optimize, place, and route design
   opt_design
   place_design
   route_design
-
-  # Save off results
-  write_checkpoint -force $checkpoint 
-  report_utilization -file $utilization
-  report_timing_summary -file $timing
 }
 
 
