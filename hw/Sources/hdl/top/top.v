@@ -4,151 +4,219 @@
 // Title: DPR
 
 module top (
-  input clk_in,
-  input rst_in
+  clk_in,
+  rst_in,
+  add_sum,
+  comp_gt,
+  comp_lt,
+  comp_eq,
+  dec_d,
+  div_quot,
+  inc_d,
+  mod_rem,
+  mux_d,
+  reg_q,
+  shl_d,
+  shr_d,
+  sub_diff
 );
-
   // Initialize wires and assign them to inputs
+  input clk_in, rst_in;
   wire rst, clk;
   assign rst = rst_in;
   assign clk = clk_in;
 
+  parameter DATAWIDTH = 2;
+
   // Initialize accessory wires for RMs
-  // Blob Merge
-  wire bmWriteFifoEmpty, bmWriteFifoRequest;
-  wire [127:0] bmWriteFifoData;
-  wire bmReadFifoFull, bmReadRequest;
-  wire [75:0] bmReadBlobData;
-  wire [10:0] bmAvgSizeXaxis;
-  wire [10:0] bmAvgSizeYaxis;
+  wire [DATAWIDTH-1:0] add_a, add_b;
+  output [DATAWIDTH-1:0] add_sum;
 
-  // Diffeq
-  wire [31:0] dqXoutport;
-  wire [31:0] dqYoutport;
-  wire [31:0] dqUoutport;
-  wire [31:0] dqAport;
-  wire [31:0] dqDXport;
-  wire [31:0] dqXinport;
-  wire [31:0] dqYinport;
-  wire [31:0] dqUinport;
+  wire [DATAWIDTH-1:0] comp_a, comp_b;
+  output comp_gt, comp_lt, comp_eq;
 
-  wire [31:0] dqaport;
-  wire [31:0] dqdxport;
-  wire [31:0] dqxport;
-  wire [31:0] dqyport;
-  wire [31:0] dquport;
+  wire [DATAWIDTH-1:0] dec_a;
+  output [DATAWIDTH-1:0] dec_d;
 
-  // Sha
-  wire [31:0] sha_text_i;
-  wire [31:0] sha_text_o;
-  wire [2:0]  sha_cmd_o;
-  wire [3:0]  sha_cmd_i;
-  wire sha_cmd_w_i;
+  wire [DATAWIDTH-1:0] div_a, div_b;
+  output [DATAWIDTH-1:0] div_quot;
 
-  // Instantiate black box modules here
-  // Blob merge
-  RLE_BlobMerging bm (
-    .clk              (clk),
-    .iReset           (rst),
-    .iReadFifoEmpty   (bmWriteFifoEmpty),
-    .iReadFifoData    (bmWriteFifoRequest),
-    .iWriteFifoFull   (bmReadFifoFull),
-    .oReadFifoRequest (bmReadRequest),
-    .oWriteBlobData   (bmReadBlobData),
-    .oWriteRequest    (bmReadRequest),
-    .oAvgSizeXaxis    (bmAvgSizeXaxis),
-    .oAvgSizeYaxis    (bmAvgSizeYaxis)
+  wire [DATAWIDTH-1:0] inc_a;
+  output [DATAWIDTH-1:0] inc_d;
+
+  wire [DATAWIDTH-1:0] mod_a, mod_b;
+  output [DATAWIDTH-1:0] mod_rem;
+
+  wire [DATAWIDTH-1:0] mux_a, mux_b;
+  wire mux_sel;
+  output [DATAWIDTH-1:0] mux_d;
+
+  wire [DATAWIDTH-1:0] reg_d;
+  wire reg_Clk, reg_Rst;
+  output [DATAWIDTH-1:0] reg_q;
+
+  wire [DATAWIDTH-1:0] shl_a, shl_sh_amt;
+  output [DATAWIDTH-1:0] shl_d;
+
+  wire [DATAWIDTH-1:0] shr_a, shr_sh_amt;
+  output [DATAWIDTH-1:0] shr_d;
+
+  wire [DATAWIDTH-1:0] sub_a, sub_b;
+  output [DATAWIDTH-1:0] sub_diff;
+
+  // Instantiate modules
+  ADD #(DATAWIDTH) add_1 (
+    .a   (add_a),
+    .b   (add_b),
+    .sum (add_sum)
   );
 
-  // Diffeq
-  diffeq_paj_convert dq1 (
-    .Xinport  (dqXoutport),
-    .Yinport  (dqYoutport),
-    .Uinport  (dqUoutport),
-    .Aport    (dqAport),
-    .DXport   (dqDXport),
-    .Xoutport (dqXinport),
-    .Youtport (dqYoutport),
-    .Uoutport (dqUoutport),
-    .clk      (clk),
-    .reset    (rst)
+  COMP #(DATAWIDTH) comp_1 (
+    .a   (comp_a),
+    .b   (comp_b),
+    .gt  (comp_gt),
+    .lt  (comp_lt),
+    .eq  (comp_eq)
   );
 
-  diffeq_f_systemC dq2 (
-    .aport  (dqaport),
-    .dxport (dqdxport),
-    .xport  (dqxport),
-    .yport  (dqyport),
-    .uport  (dquport),
-    .clk    (clk),
-    .reset  (rst)
+  DEC #(DATAWIDTH) dec_1 (
+    .a (dec_a),
+    .d (dec_d)
   );
 
-  // Sha
-  sha1 sha (
-    .clk_i   (clk),
-    .rst_i   (rst),
-    .text_i  (sha_text_o),
-    .text_o  (sha_text_i),
-    .cmd_i   (sha_text_o),
-    .cmd_w_i (sha_text_w_i),
-    .cmd_o   (sha_text_i)
+  DIV #(DATAWIDTH) div_1 (
+    .a     (div_a),
+    .b     (div_b),
+    .quot  (div_quot)
   );
 
-  // Main
+  INC #(DATAWIDTH) inc_1 (
+    .a (inc_a),
+    .d (inc_d)
+  );
+
+  MOD #(DATAWIDTH) mod_1 (
+    .a   (mod_a),
+    .b   (mod_b),
+    .rem (mod_rem)
+  );
+
+  MUL #(DATAWIDTH) mul_1 (
+    .a    (mul_a),
+    .b    (mul_b),
+    .prod (mul_prod)
+  );
+
+  MUX2x1 #(DATAWIDTH) mux_1 (
+    .a    (mux_a),
+    .b    (mux_b),
+    .d    (mux_d),
+    .sel  (mux_sel)
+  );
+
+  REG #(DATAWIDTH) reg_1 (
+    .d   (reg_d),
+    .q   (reg_q),
+    .Clk (reg_Clk),
+    .Rst (reg_Rst)
+  );
+
+  SHL #(DATAWIDTH) shl_1 (
+    .a      (shl_a),
+    .sh_amt (shl_sh_amt),
+    .d      (shl_d)
+  );
+
+  SHR #(DATAWIDTH) shr_1 (
+    .a      (shr_a),
+    .sh_amt (shr_sh_amt),
+    .d      (shr_d)
+  );
+
+  SUB #(DATAWIDTH) sub_1 (
+    .a     (sub_a),
+    .b     (sub_b),
+    .diff  (sub_diff)
+  );
+
   //always @(posedge clk)
-    // Do something - maybe toggle LED or something here
-
+    // Generate some pseudo action for now
+    
 endmodule
 
 // Define blackbox modules here
-// Blob Merge
-module RLE_BlobMerging (
-  input clk,
-  input iReset,
-  input iReadFifoEmpty,
-  input [127:0] iReadFifoData,
-  output iWriteFifoFull,		
-  input oReadFifoRequest,
-  output [75:0] oWriteBlobData, 
-  output oWriteRequest,		
-  output [10:0] oAvgSizeXaxis, 
-  output [10:0 ]oAvgSizeYaxis
+module ADD #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] sum
 ); endmodule
 
-// Diffeq
-module diffeq_paj_convert (
-  input [31:0] Xinport,
-  input [31:0] Yinport,
-  input [31:0] Uinport,
-  input [31:0] Aport,
-  input [31:0] DXport,
-  output [31:0] Xoutport,
-  output [31:0] Youtport,
-  output [31:0] Uoutport,
-  input clk,
-  input reset
+module COMP #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output gt,
+  output lt,
+  output eq
 ); endmodule
 
-module diffeq_f_systemC (
-  input [31:0] aport,
-  input [31:0] dxport,
-  output [31:0] xport,
-  output [31:0] yport,
-  output [31:0] uport,
-  input clk,
-  input reset
+module DEC #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  output [DATAWIDTH-1:0] d
 ); endmodule
 
-// Sha
-module sha1 (
-  input clk_i,
-  input rst_i,
-  input [31:0] text_i,
-  output [31:0] text_o,
-  input [2:0] cmd_i,
-  input cmd_w_i,
-  output [3:0] cmd_o
+module DIV #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] quot
+); endmodule
+
+module INC #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  output [DATAWIDTH-1:0] d
+); endmodule
+
+module MOD #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] rem
+); endmodule
+
+module MUL #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] prod
+); endmodule
+
+module MUX2x1 #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] d,
+  input sel
+); endmodule
+
+module REG #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] d,
+  output [DATAWIDTH-1:0] q,
+  input Clk,
+  input Rst
+); endmodule
+
+module SHL #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] sh_amt,
+  output [DATAWIDTH-1:0] d
+); endmodule
+
+module SHR #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] sh_amt,
+  output [DATAWIDTH-1:0] d
+); endmodule
+
+module SUB #(parameter DATAWIDTH = 2) (
+  input [DATAWIDTH-1:0] a,
+  input [DATAWIDTH-1:0] b,
+  output [DATAWIDTH-1:0] diff
 ); endmodule
 
 
