@@ -9,10 +9,8 @@
 # Forward declarations
 # rt = 1 for Real Time 0 Non Real Time
 set rt     0   
-set device "xc7z020"
-set part   "clg400"
-set speed  "-1"
-set part   ${device}${part}${speed}
+
+source utils.tcl
 
 #Define location for "Tcl" directory. Defaults to "./tcl_HD"
 if {[file exists "./Tcl_HD"]} { 
@@ -81,9 +79,9 @@ set_attribute module $static vlog          [list [glob $rtlDir/$top/*.v]]
 set_attribute module $static synth         ${run.topSynth}
 
 if { ${rt} == 0 } {
-  source design_nrt.tcl
+  source nrt/design_nrt.tcl
 } else {
-  source design_rt.tcl
+  source rt/design_rt.tcl
 }
 
 ########################################################################
