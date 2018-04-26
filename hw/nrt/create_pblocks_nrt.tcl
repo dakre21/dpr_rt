@@ -4,9 +4,9 @@
 # NOTE: Used my own heuristics to create these pbocks (only req I had was 80% or greater CLB usage)
 # Created after sourcing assemble.tcl and then creating pblocks from floorplan to fit RR area
 
-set timing_nrt ./Implement/top_timing_summary_pblock_nrt.rpt
-set utilization_nrt ./Implement/top_utilization_pblock_nrt.rpt
-set checkpoint_nrt ./Implement/top_route_design_nrt.dcp
+set timing_nrt ./Implement/top_timing_summary_full_nrt.rpt
+set utilization_nrt ./Implement/top_utilization_full_nrt.rpt
+set checkpoint_nrt ./Implement/top_route_design_full_nrt.dcp
 
 # Create Pblocks
 startgroup

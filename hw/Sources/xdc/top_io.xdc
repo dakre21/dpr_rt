@@ -718,3 +718,16 @@ set_property SLEW FAST [get_ports FIXED_IO_ps_clk]
 
 #revert back to original instance
 current_instance -quiet
+
+
+# Customization 
+set_property IOSTANDARD LVCMOS33 [get_ports [list clk_in]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list comp_eq]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list comp_gt]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list comp_lt]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list in_mux_sel]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list rst_in]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {out[1]} {out[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {op_sel[4]} {op_sel[3]} {op_sel[2]} {op_sel[1]} {op_sel[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {b[1]} {b[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {a[1]} {a[0]}]]
