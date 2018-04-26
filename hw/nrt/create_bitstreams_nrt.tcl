@@ -1,9 +1,10 @@
 # Author: David Akre
 # Description: TCL script to help with writing static and partial bitstreams
 
-set timing_nrt ./Implement/top_timing_bitstream_nrt.rpt
-set utilization_nrt ./Implement/top_utilization_bitstream_nrt.rpt
-set checkpoint_nrt ./Implement/top_route_design_bitstream_nrt.dcp
+set timing_nrt ./Implement/top_timing_full_nrt.rpt
+set utilization_nrt ./Implement/top_utilization_full_nrt.rpt
+set checkpoint_nrt ./Implement/top_route_design_full_nrt.dcp
+set checkpoint_nrt_empty ./Implement/top_route_design_nrt.dcp
 
 # Part 1 - Create static bitstream
 # Remove all RM instances from design
@@ -35,3 +36,11 @@ link_full_design
 write_checkpoint -force $checkpoint_nrt
 report_utilization -file $utilization_nrt
 report_timing_summary -file $timing_nrt
+
+# Verify routing is accurate
+pr_verify $checkpoint_nrt $checkpoint_nrt_empty
+close_project
+
+# Write bitstream now
+open_checkpoint $checkpoint_nrt
+write_bitstream -force -file Bitstreams/config_full_nrt.bit
