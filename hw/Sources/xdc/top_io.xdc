@@ -731,3 +731,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports [list {out[1]} {out[0]}]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list {op_sel[4]} {op_sel[3]} {op_sel[2]} {op_sel[1]} {op_sel[0]}]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list {b[1]} {b[0]}]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list {a[1]} {a[0]}]]
+
+set_property IOSTANDARD LVCMOS33 [get_ports [list {icap_o[31]} {icap_o[30]} {icap_o[29]} {icap_o[28]} {icap_o[27]} {icap_o[26]} {icap_o[25]} {icap_o[24]} {icap_o[23]} {icap_o[22]} {icap_o[21]} {icap_o[20]} {icap_o[19]} {icap_o[18]} {icap_o[17]} {icap_o[16]} {icap_o[15]} {icap_o[14]} {icap_o[13]} {icap_o[12]} {icap_o[11]} {icap_o[10]} {icap_o[9]} {icap_o[8]} {icap_o[7]} {icap_o[6]} {icap_o[5]} {icap_o[4]} {icap_o[3]} {icap_o[2]} {icap_o[1]} {icap_o[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {icap_i[31]} {icap_i[30]} {icap_i[29]} {icap_i[28]} {icap_i[27]} {icap_i[26]} {icap_i[25]} {icap_i[24]} {icap_i[23]} {icap_i[22]} {icap_i[21]} {icap_i[20]} {icap_i[19]} {icap_i[18]} {icap_i[17]} {icap_i[16]} {icap_i[15]} {icap_i[14]} {icap_i[13]} {icap_i[12]} {icap_i[11]} {icap_i[10]} {icap_i[9]} {icap_i[8]} {icap_i[7]} {icap_i[6]} {icap_i[5]} {icap_i[4]} {icap_i[3]} {icap_i[2]} {icap_i[1]} {icap_i[0]}]]
+
+set_property IOSTANDARD LVCMOS33 [get_ports [list clk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list icap_reset]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list mux_sel]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list rst]]
