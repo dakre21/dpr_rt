@@ -1,0 +1,7 @@
+prc_prc_table_pkg.vhd,vhdl,xil_defaultlib,../../../../prc/prc_prc_table_pkg.vhd,
+prc_prc_vsm_vs_main.vhd,vhdl,xil_defaultlib,../../../../prc/prc_prc_vsm_vs_main.vhd,
+prc_prc_fetch.vhd,vhdl,xil_defaultlib,../../../../prc/prc_prc_fetch.vhd,
+prc_prc_icap_if_0.vhd,vhdl,xil_defaultlib,../../../../prc/prc_prc_icap_if_0.vhd,
+prc_prc.vhd,vhdl,xil_defaultlib,../../../../prc/prc_prc.vhd,
+prc.vhd,vhdl,xil_defaultlib,../../../../prc/sim/prc.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

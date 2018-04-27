@@ -1,0 +1,153 @@
+2017.4:
+ * Version 1.2 (Rev. 5)
+ * Revision change in one or more subcores
+
+2017.3:
+ * Version 1.2 (Rev. 4)
+ * Updated FIFO Generator version
+ * Revision change in one or more subcores
+
+2017.2:
+ * Version 1.2 (Rev. 3)
+ * Added FIFO Generator constraints
+
+2017.1:
+ * Version 1.2 (Rev. 2)
+ * Updated logic to fix issues related to xsdb reset while opening a hw_target for the second time where read txn data is corrupted
+ * Revision change in one or more subcores
+
+2016.4:
+ * Version 1.2 (Rev. 1)
+ * Revision change in one or more subcores
+
+2016.3:
+ * Version 1.2
+ * Updated logic to resume queued transaction when AXI read/write response of previous transation is not OKAY
+ * Source HDL files are concatenated into a single file to speed up synthesis and simulation. No changes required by the user
+ * Revision change in one or more subcores
+
+2016.2:
+ * Version 1.1 (Rev. 1)
+ * No changes
+
+2016.1:
+ * Version 1.1 (Rev. 1)
+ * Updated fifo generator from v13.0 to v13.1
+
+2015.4.2:
+ * Version 1.1
+ * No changes
+
+2015.4.1:
+ * Version 1.1
+ * No changes
+
+2015.4:
+ * Version 1.1
+ * No changes
+
+2015.3:
+ * Version 1.1
+ * 64-Bit address support
+ * Added internal register for data width and id width
+ * uplus device support
+ * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+ * Updated fifo generator from v12.0 to v13.0
+
+2015.2.1:
+ * Version 1.0 (Rev. 8)
+ * No changes
+
+2015.2:
+ * Version 1.0 (Rev. 8)
+ * Code clean-up to improve coverage numbers
+
+2015.1:
+ * Version 1.0 (Rev. 7)
+ * AXI_WRITE_DONE status flag to remain asserted until issuance of a new write command
+ * Updated soft reset logic to reset control registers and FIFOs
+ * Added logic to halt wr/rd transactions in case of errors while executing queued transactions
+ * For queued transaction, done flags are asserted after the completion of all the queued up transaction instead of assertion after every individual transaction
+ * Concurrent assertion of awvalid and wvalid signals
+ * Removed ooc_xdc.ttcl file reference from coreinfo
+
+2014.4.1:
+ * Version 1.0 (Rev. 6)
+ * Updated example XDC pin location constraints for new devices
+
+2014.4:
+ * Version 1.0 (Rev. 5)
+ * Updated constraints across CDC paths between xsdb_clk and axi_aclk
+ * Updated wlast deassertion logic after bvalid assertion
+ * Updated logic to limit burst length to 16 when AXI4 burst type is FIXED or WRAP
+ * Encrypted source files are concatenated together to reduce the number of files and to reduce simulator compile time
+
+2014.3:
+ * Version 1.0 (Rev. 4)
+ * Added transaction pipelining functionality. Two new parameters, WR_TXN_QUEUE_LENGTH and RD_TXN_QUEUE_LENGTH, have been added to support back to back transaction.
+ * Added read/write enable/disable/reset register
+
+2014.2:
+ * Version 1.0 (Rev. 3)
+ * Added jtag_axi_v1_1_jtag_axi_sim.v file as simulation source
+
+2014.1:
+ * Version 1.0 (Rev. 2)
+ * Local ARESETN generation for example design in top hdl
+ * Internal device family name change, no functional changes
+ * Updated xsdb slave to 3.0, fifo generator to 12.v
+ * Support for full bandwidth for JTAG_AXI AXI4 burst write/read transaction.
+
+2013.4:
+ * Version 1.0 (Rev. 1)
+ * Synthesis warning reduction
+
+2013.3:
+ * Version 1.0
+ * Native Vivado Release
+
+(c) Copyright 2013 - 2017 Xilinx, Inc. All rights reserved.
+
+This file contains confidential and proprietary information
+of Xilinx, Inc. and is protected under U.S. and
+international copyright and other intellectual property
+laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any
+rights to the materials distributed herewith. Except as
+otherwise provided in a valid license issued to you by
+Xilinx, and to the maximum extent permitted by applicable
+law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+(2) Xilinx shall not be liable (whether in contract or tort,
+including negligence, or under any other theory of
+liability) for any loss or damage of any kind or nature
+related to, arising under or in connection with these
+materials, including for any direct, or any indirect,
+special, incidental, or consequential loss or damage
+(including loss of data, profits, goodwill, or any type of
+loss or damage suffered as a result of any action brought
+by a third party) even if such damage or loss was
+reasonably foreseeable or Xilinx had been advised of the
+possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-
+safe, or for use in any application requiring fail-safe
+performance, such as life-support or safety devices or
+systems, Class III medical devices, nuclear facilities,
+applications related to the deployment of airbags, or any
+other applications that could lead to death, personal
+injury, or severe property or environmental damage
+(individually and collectively, "Critical
+Applications"). Customer assumes the sole risk and
+liability of any use of Xilinx products in Critical
+Applications, subject only to applicable laws and
+regulations governing limitations on product liability.
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+PART OF THIS FILE AT ALL TIMES.

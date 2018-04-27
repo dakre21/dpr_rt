@@ -1,0 +1,516 @@
+Core Configuration Properties
+=============================
+CONFIG.HAS_AXI_LITE_IF                          1
+CONFIG.RESET_ACTIVE_LEVEL                       1
+CONFIG.CP_FIFO_DEPTH                            32
+CONFIG.CP_FIFO_TYPE                             lutram
+CONFIG.CP_ARBITRATION_PROTOCOL                  1
+CONFIG.CP_COMPRESSION                           0
+CONFIG.CP_FAMILY                                7series
+CONFIG.CDC_STAGES                               2
+CONFIG.VS.vs_main.START_IN_SHUTDOWN             0
+CONFIG.VS.vs_main.NUM_TRIGGERS_ALLOCATED        32
+CONFIG.VS.vs_main.NUM_RMS_ALLOCATED             32
+CONFIG.VS.vs_main.NUM_HW_TRIGGERS               12
+CONFIG.VS.vs_main.SHUTDOWN_ON_ERROR             1
+CONFIG.VS.vs_main.HAS_AXIS_STATUS               1
+CONFIG.VS.vs_main.HAS_AXIS_CONTROL              0
+CONFIG.VS.vs_main.HAS_POR_RM                    1
+CONFIG.VS.vs_main.POR_RM                        rm_add
+CONFIG.VS.vs_main.SKIP_RM_STARTUP_AFTER_RESET   0
+CONFIG.VS.vs_main.TRIGGER0_TO_RM                rm_add
+CONFIG.VS.vs_main.TRIGGER1_TO_RM                rm_comp
+CONFIG.VS.vs_main.TRIGGER2_TO_RM                rm_div
+CONFIG.VS.vs_main.TRIGGER3_TO_RM                rm_inc
+CONFIG.VS.vs_main.TRIGGER4_TO_RM                rm_dec
+CONFIG.VS.vs_main.TRIGGER5_TO_RM                rm_mod
+CONFIG.VS.vs_main.TRIGGER6_TO_RM                rm_mul
+CONFIG.VS.vs_main.TRIGGER7_TO_RM                rm_mux
+CONFIG.VS.vs_main.TRIGGER8_TO_RM                rm_reg
+CONFIG.VS.vs_main.TRIGGER9_TO_RM                rm_shl
+CONFIG.VS.vs_main.TRIGGER10_TO_RM               rm_shr
+CONFIG.VS.vs_main.TRIGGER11_TO_RM               rm_sub
+CONFIG.VS.vs_main.TRIGGER12_TO_RM               RM_12
+CONFIG.VS.vs_main.TRIGGER13_TO_RM               rm_add
+CONFIG.VS.vs_main.TRIGGER14_TO_RM               rm_comp
+CONFIG.VS.vs_main.TRIGGER15_TO_RM               rm_div
+CONFIG.VS.vs_main.TRIGGER16_TO_RM               rm_inc
+CONFIG.VS.vs_main.TRIGGER17_TO_RM               rm_dec
+CONFIG.VS.vs_main.TRIGGER18_TO_RM               rm_mod
+CONFIG.VS.vs_main.TRIGGER19_TO_RM               rm_mul
+CONFIG.VS.vs_main.TRIGGER20_TO_RM               rm_mux
+CONFIG.VS.vs_main.TRIGGER21_TO_RM               rm_reg
+CONFIG.VS.vs_main.TRIGGER22_TO_RM               rm_shl
+CONFIG.VS.vs_main.TRIGGER23_TO_RM               rm_shr
+CONFIG.VS.vs_main.TRIGGER24_TO_RM               rm_sub
+CONFIG.VS.vs_main.TRIGGER25_TO_RM               RM_12
+CONFIG.VS.vs_main.TRIGGER26_TO_RM               rm_add
+CONFIG.VS.vs_main.TRIGGER27_TO_RM               rm_comp
+CONFIG.VS.vs_main.TRIGGER28_TO_RM               rm_div
+CONFIG.VS.vs_main.TRIGGER29_TO_RM               rm_inc
+CONFIG.VS.vs_main.TRIGGER30_TO_RM               rm_dec
+CONFIG.VS.vs_main.TRIGGER31_TO_RM               rm_mod
+CONFIG.VS.vs_main.RM.rm_add.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_add.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_add.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_add.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_add.BS.0.ADDRESS        16777216
+CONFIG.VS.vs_main.RM.rm_add.BS.0.SIZE           151596
+CONFIG.VS.vs_main.RM.rm_add.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_comp.SHUTDOWN_REQUIRED  no
+CONFIG.VS.vs_main.RM.rm_comp.STARTUP_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_comp.RESET_REQUIRED     high
+CONFIG.VS.vs_main.RM.rm_comp.RESET_DURATION     1
+CONFIG.VS.vs_main.RM.rm_comp.BS.0.ADDRESS       301989888
+CONFIG.VS.vs_main.RM.rm_comp.BS.0.SIZE          307604
+CONFIG.VS.vs_main.RM.rm_comp.BS.0.CLEAR         0
+CONFIG.VS.vs_main.RM.rm_div.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_div.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_div.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_div.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_div.BS.0.ADDRESS        369098752
+CONFIG.VS.vs_main.RM.rm_div.BS.0.SIZE           203308
+CONFIG.VS.vs_main.RM.rm_div.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_inc.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_inc.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_inc.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_inc.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_inc.BS.0.ADDRESS        402653184
+CONFIG.VS.vs_main.RM.rm_inc.BS.0.SIZE           151596
+CONFIG.VS.vs_main.RM.rm_inc.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_dec.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_dec.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_dec.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_dec.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_dec.BS.0.ADDRESS        553648128
+CONFIG.VS.vs_main.RM.rm_dec.BS.0.SIZE           151596
+CONFIG.VS.vs_main.RM.rm_dec.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_mod.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_mod.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_mod.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_mod.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_mod.BS.0.ADDRESS        587202560
+CONFIG.VS.vs_main.RM.rm_mod.BS.0.SIZE           209772
+CONFIG.VS.vs_main.RM.rm_mod.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_mul.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_mul.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_mul.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_mul.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_mul.BS.0.ADDRESS        637534208
+CONFIG.VS.vs_main.RM.rm_mul.BS.0.SIZE           209772
+CONFIG.VS.vs_main.RM.rm_mul.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_mux.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_mux.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_mux.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_mux.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_mux.BS.0.ADDRESS        687865856
+CONFIG.VS.vs_main.RM.rm_mux.BS.0.SIZE           249428
+CONFIG.VS.vs_main.RM.rm_mux.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_reg.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_reg.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_reg.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_reg.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_reg.BS.0.ADDRESS        838860800
+CONFIG.VS.vs_main.RM.rm_reg.BS.0.SIZE           307604
+CONFIG.VS.vs_main.RM.rm_reg.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_shl.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_shl.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_shl.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_shl.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_shl.BS.0.ADDRESS        905969664
+CONFIG.VS.vs_main.RM.rm_shl.BS.0.SIZE           3657800
+CONFIG.VS.vs_main.RM.rm_shl.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_shr.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_shr.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_shr.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_shr.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_shr.BS.0.ADDRESS        1073741824
+CONFIG.VS.vs_main.RM.rm_shr.BS.0.SIZE           319660
+CONFIG.VS.vs_main.RM.rm_shr.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.rm_sub.SHUTDOWN_REQUIRED   no
+CONFIG.VS.vs_main.RM.rm_sub.STARTUP_REQUIRED    no
+CONFIG.VS.vs_main.RM.rm_sub.RESET_REQUIRED      high
+CONFIG.VS.vs_main.RM.rm_sub.RESET_DURATION      1
+CONFIG.VS.vs_main.RM.rm_sub.BS.0.ADDRESS        1140850688
+CONFIG.VS.vs_main.RM.rm_sub.BS.0.SIZE           366652
+CONFIG.VS.vs_main.RM.rm_sub.BS.0.CLEAR          0
+CONFIG.VS.vs_main.RM.RM_12.SHUTDOWN_REQUIRED    no
+CONFIG.VS.vs_main.RM.RM_12.STARTUP_REQUIRED     no
+CONFIG.VS.vs_main.RM.RM_12.RESET_REQUIRED       no
+CONFIG.VS.vs_main.RM.RM_12.RESET_DURATION       1
+CONFIG.VS.vs_main.RM.RM_12.BS.0.ADDRESS         0
+CONFIG.VS.vs_main.RM.RM_12.BS.0.SIZE            0
+CONFIG.VS.vs_main.RM.RM_12.BS.0.CLEAR           0
+
+
+prc_v1_2::set_property -dict [list \
+                               CONFIG.HAS_AXI_LITE_IF                          1 \
+                               CONFIG.RESET_ACTIVE_LEVEL                       1 \
+                               CONFIG.CP_FIFO_DEPTH                            32 \
+                               CONFIG.CP_FIFO_TYPE                             lutram \
+                               CONFIG.CP_ARBITRATION_PROTOCOL                  1 \
+                               CONFIG.CP_COMPRESSION                           0 \
+                               CONFIG.CP_FAMILY                                7series \
+                               CONFIG.CDC_STAGES                               2 \
+                               CONFIG.VS.vs_main.START_IN_SHUTDOWN             0 \
+                               CONFIG.VS.vs_main.NUM_TRIGGERS_ALLOCATED        32 \
+                               CONFIG.VS.vs_main.NUM_RMS_ALLOCATED             32 \
+                               CONFIG.VS.vs_main.NUM_HW_TRIGGERS               12 \
+                               CONFIG.VS.vs_main.SHUTDOWN_ON_ERROR             1 \
+                               CONFIG.VS.vs_main.HAS_AXIS_STATUS               1 \
+                               CONFIG.VS.vs_main.HAS_AXIS_CONTROL              0 \
+                               CONFIG.VS.vs_main.HAS_POR_RM                    1 \
+                               CONFIG.VS.vs_main.POR_RM                        rm_add \
+                               CONFIG.VS.vs_main.SKIP_RM_STARTUP_AFTER_RESET   0 \
+                               CONFIG.VS.vs_main.TRIGGER0_TO_RM                rm_add \
+                               CONFIG.VS.vs_main.TRIGGER1_TO_RM                rm_comp \
+                               CONFIG.VS.vs_main.TRIGGER2_TO_RM                rm_div \
+                               CONFIG.VS.vs_main.TRIGGER3_TO_RM                rm_inc \
+                               CONFIG.VS.vs_main.TRIGGER4_TO_RM                rm_dec \
+                               CONFIG.VS.vs_main.TRIGGER5_TO_RM                rm_mod \
+                               CONFIG.VS.vs_main.TRIGGER6_TO_RM                rm_mul \
+                               CONFIG.VS.vs_main.TRIGGER7_TO_RM                rm_mux \
+                               CONFIG.VS.vs_main.TRIGGER8_TO_RM                rm_reg \
+                               CONFIG.VS.vs_main.TRIGGER9_TO_RM                rm_shl \
+                               CONFIG.VS.vs_main.TRIGGER10_TO_RM               rm_shr \
+                               CONFIG.VS.vs_main.TRIGGER11_TO_RM               rm_sub \
+                               CONFIG.VS.vs_main.TRIGGER12_TO_RM               RM_12 \
+                               CONFIG.VS.vs_main.TRIGGER13_TO_RM               rm_add \
+                               CONFIG.VS.vs_main.TRIGGER14_TO_RM               rm_comp \
+                               CONFIG.VS.vs_main.TRIGGER15_TO_RM               rm_div \
+                               CONFIG.VS.vs_main.TRIGGER16_TO_RM               rm_inc \
+                               CONFIG.VS.vs_main.TRIGGER17_TO_RM               rm_dec \
+                               CONFIG.VS.vs_main.TRIGGER18_TO_RM               rm_mod \
+                               CONFIG.VS.vs_main.TRIGGER19_TO_RM               rm_mul \
+                               CONFIG.VS.vs_main.TRIGGER20_TO_RM               rm_mux \
+                               CONFIG.VS.vs_main.TRIGGER21_TO_RM               rm_reg \
+                               CONFIG.VS.vs_main.TRIGGER22_TO_RM               rm_shl \
+                               CONFIG.VS.vs_main.TRIGGER23_TO_RM               rm_shr \
+                               CONFIG.VS.vs_main.TRIGGER24_TO_RM               rm_sub \
+                               CONFIG.VS.vs_main.TRIGGER25_TO_RM               RM_12 \
+                               CONFIG.VS.vs_main.TRIGGER26_TO_RM               rm_add \
+                               CONFIG.VS.vs_main.TRIGGER27_TO_RM               rm_comp \
+                               CONFIG.VS.vs_main.TRIGGER28_TO_RM               rm_div \
+                               CONFIG.VS.vs_main.TRIGGER29_TO_RM               rm_inc \
+                               CONFIG.VS.vs_main.TRIGGER30_TO_RM               rm_dec \
+                               CONFIG.VS.vs_main.TRIGGER31_TO_RM               rm_mod \
+                               CONFIG.VS.vs_main.RM.rm_add.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_add.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_add.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_add.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_add.BS.0.ADDRESS        16777216 \
+                               CONFIG.VS.vs_main.RM.rm_add.BS.0.SIZE           151596 \
+                               CONFIG.VS.vs_main.RM.rm_add.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_comp.SHUTDOWN_REQUIRED  no \
+                               CONFIG.VS.vs_main.RM.rm_comp.STARTUP_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_comp.RESET_REQUIRED     high \
+                               CONFIG.VS.vs_main.RM.rm_comp.RESET_DURATION     1 \
+                               CONFIG.VS.vs_main.RM.rm_comp.BS.0.ADDRESS       301989888 \
+                               CONFIG.VS.vs_main.RM.rm_comp.BS.0.SIZE          307604 \
+                               CONFIG.VS.vs_main.RM.rm_comp.BS.0.CLEAR         0 \
+                               CONFIG.VS.vs_main.RM.rm_div.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_div.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_div.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_div.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_div.BS.0.ADDRESS        369098752 \
+                               CONFIG.VS.vs_main.RM.rm_div.BS.0.SIZE           203308 \
+                               CONFIG.VS.vs_main.RM.rm_div.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_inc.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_inc.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_inc.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_inc.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_inc.BS.0.ADDRESS        402653184 \
+                               CONFIG.VS.vs_main.RM.rm_inc.BS.0.SIZE           151596 \
+                               CONFIG.VS.vs_main.RM.rm_inc.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_dec.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_dec.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_dec.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_dec.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_dec.BS.0.ADDRESS        553648128 \
+                               CONFIG.VS.vs_main.RM.rm_dec.BS.0.SIZE           151596 \
+                               CONFIG.VS.vs_main.RM.rm_dec.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_mod.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_mod.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_mod.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_mod.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_mod.BS.0.ADDRESS        587202560 \
+                               CONFIG.VS.vs_main.RM.rm_mod.BS.0.SIZE           209772 \
+                               CONFIG.VS.vs_main.RM.rm_mod.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_mul.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_mul.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_mul.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_mul.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_mul.BS.0.ADDRESS        637534208 \
+                               CONFIG.VS.vs_main.RM.rm_mul.BS.0.SIZE           209772 \
+                               CONFIG.VS.vs_main.RM.rm_mul.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_mux.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_mux.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_mux.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_mux.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_mux.BS.0.ADDRESS        687865856 \
+                               CONFIG.VS.vs_main.RM.rm_mux.BS.0.SIZE           249428 \
+                               CONFIG.VS.vs_main.RM.rm_mux.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_reg.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_reg.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_reg.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_reg.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_reg.BS.0.ADDRESS        838860800 \
+                               CONFIG.VS.vs_main.RM.rm_reg.BS.0.SIZE           307604 \
+                               CONFIG.VS.vs_main.RM.rm_reg.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_shl.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_shl.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_shl.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_shl.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_shl.BS.0.ADDRESS        905969664 \
+                               CONFIG.VS.vs_main.RM.rm_shl.BS.0.SIZE           3657800 \
+                               CONFIG.VS.vs_main.RM.rm_shl.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_shr.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_shr.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_shr.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_shr.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_shr.BS.0.ADDRESS        1073741824 \
+                               CONFIG.VS.vs_main.RM.rm_shr.BS.0.SIZE           319660 \
+                               CONFIG.VS.vs_main.RM.rm_shr.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.rm_sub.SHUTDOWN_REQUIRED   no \
+                               CONFIG.VS.vs_main.RM.rm_sub.STARTUP_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.rm_sub.RESET_REQUIRED      high \
+                               CONFIG.VS.vs_main.RM.rm_sub.RESET_DURATION      1 \
+                               CONFIG.VS.vs_main.RM.rm_sub.BS.0.ADDRESS        1140850688 \
+                               CONFIG.VS.vs_main.RM.rm_sub.BS.0.SIZE           366652 \
+                               CONFIG.VS.vs_main.RM.rm_sub.BS.0.CLEAR          0 \
+                               CONFIG.VS.vs_main.RM.RM_12.SHUTDOWN_REQUIRED    no \
+                               CONFIG.VS.vs_main.RM.RM_12.STARTUP_REQUIRED     no \
+                               CONFIG.VS.vs_main.RM.RM_12.RESET_REQUIRED       no \
+                               CONFIG.VS.vs_main.RM.RM_12.RESET_DURATION       1 \
+                               CONFIG.VS.vs_main.RM.RM_12.BS.0.ADDRESS         0 \
+                               CONFIG.VS.vs_main.RM.RM_12.BS.0.SIZE            0 \
+                               CONFIG.VS.vs_main.RM.RM_12.BS.0.CLEAR           0 \
+                             ] [get_ips prc]
+
+ID Mapping
+=============================
+Virtual Socket Manager vs_main is assigned ID 0
+  Reconfigurable Module rm_add is assigned ID 0
+  Reconfigurable Module rm_comp is assigned ID 1
+  Reconfigurable Module rm_div is assigned ID 2
+  Reconfigurable Module rm_inc is assigned ID 3
+  Reconfigurable Module rm_dec is assigned ID 4
+  Reconfigurable Module rm_mod is assigned ID 5
+  Reconfigurable Module rm_mul is assigned ID 6
+  Reconfigurable Module rm_mux is assigned ID 7
+  Reconfigurable Module rm_reg is assigned ID 8
+  Reconfigurable Module rm_shl is assigned ID 9
+  Reconfigurable Module rm_shr is assigned ID 10
+  Reconfigurable Module rm_sub is assigned ID 11
+  Reconfigurable Module RM_12 is assigned ID 12
+
+
+Address Structure
+=============================
+The addresses are structured as follows:
+  There is no VSM Select slice as there's only one VSM
+  address[10: 9]  : Selects the Register Bank
+  address[ 8: 2]  : Selects the Register within the bank
+
+Address Map
+=============================
+| Virtual Socket Manager | Register      | Address |
++------------------------+---------------+---------+
+| vs_main                | STATUS        | 0X00000 |
+| vs_main                | CONTROL       | 0X00000 |
+| vs_main                | SW_TRIGGER    | 0X00004 |
+| vs_main                | TRIGGER0      | 0X00200 |
+| vs_main                | TRIGGER1      | 0X00204 |
+| vs_main                | TRIGGER2      | 0X00208 |
+| vs_main                | TRIGGER3      | 0X0020C |
+| vs_main                | TRIGGER4      | 0X00210 |
+| vs_main                | TRIGGER5      | 0X00214 |
+| vs_main                | TRIGGER6      | 0X00218 |
+| vs_main                | TRIGGER7      | 0X0021C |
+| vs_main                | TRIGGER8      | 0X00220 |
+| vs_main                | TRIGGER9      | 0X00224 |
+| vs_main                | TRIGGER10     | 0X00228 |
+| vs_main                | TRIGGER11     | 0X0022C |
+| vs_main                | TRIGGER12     | 0X00230 |
+| vs_main                | TRIGGER13     | 0X00234 |
+| vs_main                | TRIGGER14     | 0X00238 |
+| vs_main                | TRIGGER15     | 0X0023C |
+| vs_main                | TRIGGER16     | 0X00240 |
+| vs_main                | TRIGGER17     | 0X00244 |
+| vs_main                | TRIGGER18     | 0X00248 |
+| vs_main                | TRIGGER19     | 0X0024C |
+| vs_main                | TRIGGER20     | 0X00250 |
+| vs_main                | TRIGGER21     | 0X00254 |
+| vs_main                | TRIGGER22     | 0X00258 |
+| vs_main                | TRIGGER23     | 0X0025C |
+| vs_main                | TRIGGER24     | 0X00260 |
+| vs_main                | TRIGGER25     | 0X00264 |
+| vs_main                | TRIGGER26     | 0X00268 |
+| vs_main                | TRIGGER27     | 0X0026C |
+| vs_main                | TRIGGER28     | 0X00270 |
+| vs_main                | TRIGGER29     | 0X00274 |
+| vs_main                | TRIGGER30     | 0X00278 |
+| vs_main                | TRIGGER31     | 0X0027C |
+| vs_main                | RM_BS_INDEX0  | 0X00400 |
+| vs_main                | RM_CONTROL0   | 0X00404 |
+| vs_main                | RM_BS_INDEX1  | 0X00408 |
+| vs_main                | RM_CONTROL1   | 0X0040C |
+| vs_main                | RM_BS_INDEX2  | 0X00410 |
+| vs_main                | RM_CONTROL2   | 0X00414 |
+| vs_main                | RM_BS_INDEX3  | 0X00418 |
+| vs_main                | RM_CONTROL3   | 0X0041C |
+| vs_main                | RM_BS_INDEX4  | 0X00420 |
+| vs_main                | RM_CONTROL4   | 0X00424 |
+| vs_main                | RM_BS_INDEX5  | 0X00428 |
+| vs_main                | RM_CONTROL5   | 0X0042C |
+| vs_main                | RM_BS_INDEX6  | 0X00430 |
+| vs_main                | RM_CONTROL6   | 0X00434 |
+| vs_main                | RM_BS_INDEX7  | 0X00438 |
+| vs_main                | RM_CONTROL7   | 0X0043C |
+| vs_main                | RM_BS_INDEX8  | 0X00440 |
+| vs_main                | RM_CONTROL8   | 0X00444 |
+| vs_main                | RM_BS_INDEX9  | 0X00448 |
+| vs_main                | RM_CONTROL9   | 0X0044C |
+| vs_main                | RM_BS_INDEX10 | 0X00450 |
+| vs_main                | RM_CONTROL10  | 0X00454 |
+| vs_main                | RM_BS_INDEX11 | 0X00458 |
+| vs_main                | RM_CONTROL11  | 0X0045C |
+| vs_main                | RM_BS_INDEX12 | 0X00460 |
+| vs_main                | RM_CONTROL12  | 0X00464 |
+| vs_main                | RM_BS_INDEX13 | 0X00468 |
+| vs_main                | RM_CONTROL13  | 0X0046C |
+| vs_main                | RM_BS_INDEX14 | 0X00470 |
+| vs_main                | RM_CONTROL14  | 0X00474 |
+| vs_main                | RM_BS_INDEX15 | 0X00478 |
+| vs_main                | RM_CONTROL15  | 0X0047C |
+| vs_main                | RM_BS_INDEX16 | 0X00480 |
+| vs_main                | RM_CONTROL16  | 0X00484 |
+| vs_main                | RM_BS_INDEX17 | 0X00488 |
+| vs_main                | RM_CONTROL17  | 0X0048C |
+| vs_main                | RM_BS_INDEX18 | 0X00490 |
+| vs_main                | RM_CONTROL18  | 0X00494 |
+| vs_main                | RM_BS_INDEX19 | 0X00498 |
+| vs_main                | RM_CONTROL19  | 0X0049C |
+| vs_main                | RM_BS_INDEX20 | 0X004A0 |
+| vs_main                | RM_CONTROL20  | 0X004A4 |
+| vs_main                | RM_BS_INDEX21 | 0X004A8 |
+| vs_main                | RM_CONTROL21  | 0X004AC |
+| vs_main                | RM_BS_INDEX22 | 0X004B0 |
+| vs_main                | RM_CONTROL22  | 0X004B4 |
+| vs_main                | RM_BS_INDEX23 | 0X004B8 |
+| vs_main                | RM_CONTROL23  | 0X004BC |
+| vs_main                | RM_BS_INDEX24 | 0X004C0 |
+| vs_main                | RM_CONTROL24  | 0X004C4 |
+| vs_main                | RM_BS_INDEX25 | 0X004C8 |
+| vs_main                | RM_CONTROL25  | 0X004CC |
+| vs_main                | RM_BS_INDEX26 | 0X004D0 |
+| vs_main                | RM_CONTROL26  | 0X004D4 |
+| vs_main                | RM_BS_INDEX27 | 0X004D8 |
+| vs_main                | RM_CONTROL27  | 0X004DC |
+| vs_main                | RM_BS_INDEX28 | 0X004E0 |
+| vs_main                | RM_CONTROL28  | 0X004E4 |
+| vs_main                | RM_BS_INDEX29 | 0X004E8 |
+| vs_main                | RM_CONTROL29  | 0X004EC |
+| vs_main                | RM_BS_INDEX30 | 0X004F0 |
+| vs_main                | RM_CONTROL30  | 0X004F4 |
+| vs_main                | RM_BS_INDEX31 | 0X004F8 |
+| vs_main                | RM_CONTROL31  | 0X004FC |
+| vs_main                | BS_ID0        | 0X00600 |
+| vs_main                | BS_ADDRESS0   | 0X00604 |
+| vs_main                | BS_SIZE0      | 0X00608 |
+| vs_main                | BS_ID1        | 0X00610 |
+| vs_main                | BS_ADDRESS1   | 0X00614 |
+| vs_main                | BS_SIZE1      | 0X00618 |
+| vs_main                | BS_ID2        | 0X00620 |
+| vs_main                | BS_ADDRESS2   | 0X00624 |
+| vs_main                | BS_SIZE2      | 0X00628 |
+| vs_main                | BS_ID3        | 0X00630 |
+| vs_main                | BS_ADDRESS3   | 0X00634 |
+| vs_main                | BS_SIZE3      | 0X00638 |
+| vs_main                | BS_ID4        | 0X00640 |
+| vs_main                | BS_ADDRESS4   | 0X00644 |
+| vs_main                | BS_SIZE4      | 0X00648 |
+| vs_main                | BS_ID5        | 0X00650 |
+| vs_main                | BS_ADDRESS5   | 0X00654 |
+| vs_main                | BS_SIZE5      | 0X00658 |
+| vs_main                | BS_ID6        | 0X00660 |
+| vs_main                | BS_ADDRESS6   | 0X00664 |
+| vs_main                | BS_SIZE6      | 0X00668 |
+| vs_main                | BS_ID7        | 0X00670 |
+| vs_main                | BS_ADDRESS7   | 0X00674 |
+| vs_main                | BS_SIZE7      | 0X00678 |
+| vs_main                | BS_ID8        | 0X00680 |
+| vs_main                | BS_ADDRESS8   | 0X00684 |
+| vs_main                | BS_SIZE8      | 0X00688 |
+| vs_main                | BS_ID9        | 0X00690 |
+| vs_main                | BS_ADDRESS9   | 0X00694 |
+| vs_main                | BS_SIZE9      | 0X00698 |
+| vs_main                | BS_ID10       | 0X006A0 |
+| vs_main                | BS_ADDRESS10  | 0X006A4 |
+| vs_main                | BS_SIZE10     | 0X006A8 |
+| vs_main                | BS_ID11       | 0X006B0 |
+| vs_main                | BS_ADDRESS11  | 0X006B4 |
+| vs_main                | BS_SIZE11     | 0X006B8 |
+| vs_main                | BS_ID12       | 0X006C0 |
+| vs_main                | BS_ADDRESS12  | 0X006C4 |
+| vs_main                | BS_SIZE12     | 0X006C8 |
+| vs_main                | BS_ID13       | 0X006D0 |
+| vs_main                | BS_ADDRESS13  | 0X006D4 |
+| vs_main                | BS_SIZE13     | 0X006D8 |
+| vs_main                | BS_ID14       | 0X006E0 |
+| vs_main                | BS_ADDRESS14  | 0X006E4 |
+| vs_main                | BS_SIZE14     | 0X006E8 |
+| vs_main                | BS_ID15       | 0X006F0 |
+| vs_main                | BS_ADDRESS15  | 0X006F4 |
+| vs_main                | BS_SIZE15     | 0X006F8 |
+| vs_main                | BS_ID16       | 0X00700 |
+| vs_main                | BS_ADDRESS16  | 0X00704 |
+| vs_main                | BS_SIZE16     | 0X00708 |
+| vs_main                | BS_ID17       | 0X00710 |
+| vs_main                | BS_ADDRESS17  | 0X00714 |
+| vs_main                | BS_SIZE17     | 0X00718 |
+| vs_main                | BS_ID18       | 0X00720 |
+| vs_main                | BS_ADDRESS18  | 0X00724 |
+| vs_main                | BS_SIZE18     | 0X00728 |
+| vs_main                | BS_ID19       | 0X00730 |
+| vs_main                | BS_ADDRESS19  | 0X00734 |
+| vs_main                | BS_SIZE19     | 0X00738 |
+| vs_main                | BS_ID20       | 0X00740 |
+| vs_main                | BS_ADDRESS20  | 0X00744 |
+| vs_main                | BS_SIZE20     | 0X00748 |
+| vs_main                | BS_ID21       | 0X00750 |
+| vs_main                | BS_ADDRESS21  | 0X00754 |
+| vs_main                | BS_SIZE21     | 0X00758 |
+| vs_main                | BS_ID22       | 0X00760 |
+| vs_main                | BS_ADDRESS22  | 0X00764 |
+| vs_main                | BS_SIZE22     | 0X00768 |
+| vs_main                | BS_ID23       | 0X00770 |
+| vs_main                | BS_ADDRESS23  | 0X00774 |
+| vs_main                | BS_SIZE23     | 0X00778 |
+| vs_main                | BS_ID24       | 0X00780 |
+| vs_main                | BS_ADDRESS24  | 0X00784 |
+| vs_main                | BS_SIZE24     | 0X00788 |
+| vs_main                | BS_ID25       | 0X00790 |
+| vs_main                | BS_ADDRESS25  | 0X00794 |
+| vs_main                | BS_SIZE25     | 0X00798 |
+| vs_main                | BS_ID26       | 0X007A0 |
+| vs_main                | BS_ADDRESS26  | 0X007A4 |
+| vs_main                | BS_SIZE26     | 0X007A8 |
+| vs_main                | BS_ID27       | 0X007B0 |
+| vs_main                | BS_ADDRESS27  | 0X007B4 |
+| vs_main                | BS_SIZE27     | 0X007B8 |
+| vs_main                | BS_ID28       | 0X007C0 |
+| vs_main                | BS_ADDRESS28  | 0X007C4 |
+| vs_main                | BS_SIZE28     | 0X007C8 |
+| vs_main                | BS_ID29       | 0X007D0 |
+| vs_main                | BS_ADDRESS29  | 0X007D4 |
+| vs_main                | BS_SIZE29     | 0X007D8 |
+| vs_main                | BS_ID30       | 0X007E0 |
+| vs_main                | BS_ADDRESS30  | 0X007E4 |
+| vs_main                | BS_SIZE30     | 0X007E8 |
+| vs_main                | BS_ID31       | 0X007F0 |
+| vs_main                | BS_ADDRESS31  | 0X007F4 |
+| vs_main                | BS_SIZE31     | 0X007F8 |
+
+
+

@@ -1,0 +1,9 @@
+xpm_fifo.sv,systemverilog,xil_defaultlib,../../../../../../../../../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv,
+xpm_memory.sv,systemverilog,xil_defaultlib,../../../../../../../../../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_cdc.sv,systemverilog,xil_defaultlib,../../../../../../../../../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd,
+lib_cdc_v1_0_rfs.vhd,vhdl,lib_cdc_v1_0_2,../../../ipstatic/hdl/lib_cdc_v1_0_rfs.vhd,
+pr_decoupler_v1_0_vh_rfs.vhd,vhdl,pr_decoupler_v1_0_5,../../../ipstatic/hdl/pr_decoupler_v1_0_vh_rfs.vhd,
+prd_prd.vhd,vhdl,xil_defaultlib,../../../../prd/prd_prd.vhd,
+prd.vhd,vhdl,xil_defaultlib,../../../../prd/sim/prd.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

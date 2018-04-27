@@ -1,0 +1,175 @@
+2017.4:
+ * Version 3.0 (Rev. 15)
+ * Revision change in one or more subcores
+
+2017.3:
+ * Version 3.0 (Rev. 14)
+ * General: Updates to example design. No functional changes
+ * Revision change in one or more subcores
+
+2017.2:
+ * Version 3.0 (Rev. 13)
+ * General: Updated to correct IPI automation for EMC_INTF interface. No Functional changes
+ * Revision change in one or more subcores
+
+2017.1:
+ * Version 3.0 (Rev. 12)
+ * General: Updates to example design. No Functional changes
+ * Revision change in one or more subcores
+
+2016.4:
+ * Version 3.0 (Rev. 11)
+ * Revision change in one or more subcores
+
+2016.3:
+ * Version 3.0 (Rev. 10)
+ * General: Source HDL files are concatenated into a single file to speed up synthesis and simulation. No changes required by the user
+ * Revision change in one or more subcores
+
+2016.2:
+ * Version 3.0 (Rev. 9)
+ * Interface definition updated. No functional changes
+ * Revision change in one or more subcores
+
+2016.1:
+ * Version 3.0 (Rev. 8)
+ * Constraints updated to improve timing
+ * Revision change in one or more subcores
+
+2015.4.2:
+ * Version 3.0 (Rev. 7)
+ * No changes
+
+2015.4.1:
+ * Version 3.0 (Rev. 7)
+ * No changes
+
+2015.4:
+ * Version 3.0 (Rev. 7)
+ * Corrected the IP level IOB constraints on Memory Interface Ports when STARTUP is enabled (AR 65523)
+ * Revision change in one or more subcores
+
+2015.3:
+ * Version 3.0 (Rev. 6)
+ * Added IOB attribute to interface flops (through core HDL and through XDC constraints where applicable)
+ * Added option to include STARTUPE3 primitive inside the core
+ * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+ * Revision change in one or more subcores
+
+2015.2.1:
+ * Version 3.0 (Rev. 5)
+ * No changes
+
+2015.2:
+ * Version 3.0 (Rev. 5)
+ * DRC added in bd to ensure axi clock and rdclk are connected from same source, no functional changes
+
+2015.1:
+ * Version 3.0 (Rev. 4)
+ * Updated IP to get Bus Width from common utilities for Board.
+ * Updated rtl to correctly generate ADV_LDN output.
+ * Supported devices and production status are now determined automatically, to simplify support for future devices
+
+2014.4.1:
+ * Version 3.0 (Rev. 3)
+ * No changes
+
+2014.4:
+ * Version 3.0 (Rev. 3)
+ * Updated to support IPI automation for EMC_INTF interface
+ * Updated the state-machine to remove the extra reads coming for Single axi transaction
+
+2014.3:
+ * Version 3.0 (Rev. 2)
+ * Improve efficiency of Board flow support
+ * modified to use new sub-cores in place of proc_common. No functional changes
+ * Updating core to use utils.tcl needed for board flow from common location
+
+2014.2:
+ * Version 3.0 (Rev. 1)
+ * Fixed the core to respond correctly for wvalid throttling (AR 59967).
+ * Updated the parity calculation logic for narrow reads in Synchronous memories (AR 60065).
+ * Updated the RTL for incorrect parameter calculations,no functional changes.
+ * Updated the example design to support all the allowable momory combinations.
+
+2014.1:
+ * Version 3.0
+ * Made the parity ports optional based on user selection.
+ * Internal device family name change, no functional changes
+ * Updated the example design to use Block Memory Generator version 8.2.
+ * Virtex UltraScale Pre-Production support.
+
+2013.4:
+ * Version 2.0 (Rev. 3)
+ * Updated the example design to use Block Memory Generator version 8.1.
+ * Updated the Address maps form register type to memory.
+ * Added support for XGUI 2.0.
+ * Lint mandatory warnings fixed.
+ * Kintex UltraScale Pre-Production support.
+ * Default value of '0' has been added for parity input pin.
+
+2013.3:
+ * Version 2.0 (Rev. 2)
+ * Updated the functionality to support the multiple banks in sync linear flash mode.
+ * Corrected the functionality for parity bit calculation in Sync SRAM mode.
+ * Support for 7-series devices at Production status
+ * Added example design and demonstration testbench
+ * Reduced warnings in synthesis and simulation
+ * Enhanced support for IP Integrator
+ * Added support for Cadence IES and Synopsys VCS simulators
+ * Updated to complete transactions for non-existent address regions
+
+2013.2:
+ * Version 2.0 (Rev. 1)
+ * Added BETA support for future devices.
+
+2013.1:
+ * Version 2.0
+ * Fixed the issues with core during burst operation, up reved for 2013.1
+ * Optimised architecture for speed
+
+(c) Copyright 2012 - 2017 Xilinx, Inc. All rights reserved.
+
+This file contains confidential and proprietary information
+of Xilinx, Inc. and is protected under U.S. and
+international copyright and other intellectual property
+laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any
+rights to the materials distributed herewith. Except as
+otherwise provided in a valid license issued to you by
+Xilinx, and to the maximum extent permitted by applicable
+law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+(2) Xilinx shall not be liable (whether in contract or tort,
+including negligence, or under any other theory of
+liability) for any loss or damage of any kind or nature
+related to, arising under or in connection with these
+materials, including for any direct, or any indirect,
+special, incidental, or consequential loss or damage
+(including loss of data, profits, goodwill, or any type of
+loss or damage suffered as a result of any action brought
+by a third party) even if such damage or loss was
+reasonably foreseeable or Xilinx had been advised of the
+possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-
+safe, or for use in any application requiring fail-safe
+performance, such as life-support or safety devices or
+systems, Class III medical devices, nuclear facilities,
+applications related to the deployment of airbags, or any
+other applications that could lead to death, personal
+injury, or severe property or environmental damage
+(individually and collectively, "Critical
+Applications"). Customer assumes the sole risk and
+liability of any use of Xilinx products in Critical
+Applications, subject only to applicable laws and
+regulations governing limitations on product liability.
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+PART OF THIS FILE AT ALL TIMES.

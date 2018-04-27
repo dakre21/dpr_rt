@@ -1,0 +1,7 @@
+xpm_cdc.sv,systemverilog,xil_defaultlib,../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+xpm_fifo.sv,systemverilog,xil_defaultlib,../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+xpm_memory.sv,systemverilog,xil_defaultlib,../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+xpm_VCOMP.vhd,vhdl,xpm,../../opt/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+jtag_axi_v1_2_rfs.v,verilog,jtag_axi,../../../ipstatic/hdl/jtag_axi_v1_2_rfs.v,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+jtag_axi_ctrl.v,verilog,xil_defaultlib,../../../../jtag_axi_ctrl/sim/jtag_axi_ctrl.v,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v

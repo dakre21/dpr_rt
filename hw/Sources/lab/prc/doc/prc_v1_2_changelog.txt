@@ -1,0 +1,125 @@
+2017.4:
+ * Version 1.2 (Rev. 1)
+ * Bug Fix: Fixed the core in the IES/ncsim export_simulation flow
+
+2017.3:
+ * Version 1.2
+ * Bug Fix: Fixed a corner case where the VSM could stay in SHUTDOWN if the RESTART command came on the clock cycle after reset was released.
+ * Bug Fix: Fixed a rare corner case where a PROCEED command (issued using AXIS) for SW Shutdown could be missed if it occurred within one clock of a PROCEED command (issued using AXI-LITE) for SW Startup.
+ * New Feature: Added support bitstream compression
+ * Other: Changed from using the fifo_generator to xpm_fifo
+ * Revision change in one or more subcores
+
+2017.2:
+ * Version 1.1 (Rev. 1)
+ * General: No visible changes
+
+2017.1:
+ * Version 1.1
+ * No changes
+
+2016.4:
+ * Version 1.1
+ * No changes
+
+2016.3:
+ * Version 1.1
+ * Bug Fix: Fixed some issues with FETCH error handling if the error occurred on the first word of a transfer.
+ * Bug Fix: Fixed a bug where the core failed to generate if the chosen part was an UltraScale+ part.
+ * Bug Fix: Fixed a bug in the CAP arbitration code. Bitstream transfers would not start if CAP_REL was hardwired to 1.
+ * New Feature: Added support for UltraScale+
+ * Feature Enhancement: Updated the CAP arbitration protocol to support three modes. See the Product Guide for more information.
+ * Feature Enhancement: Small change made to the customisation GUI.
+ * Other: Updated the fifo_generator to v13.1.
+
+2016.2:
+ * Version 1.0 (Rev. 2)
+ * No changes
+
+2016.1:
+ * Version 1.0 (Rev. 2)
+ * Changed the default GUI tab to the core's symbol.
+ * Clearing bitstreams can now be in bitstream location zero.
+ * rm_decouple is no longer asserted after reset when "Skip RM Startup after Reset" is enabled.
+ * The status register now reports Reset (b110) during an RM reset instead of LOAD(b100).
+ * The behaviour of rm_reset has been changed in some cases after a Power on Reset. See the Product Guide for more information.
+ * Changes to HDL library management to support Vivado IP simulation library
+
+2015.4.2:
+ * Version 1.0 (Rev. 1)
+ * No changes
+
+2015.4.1:
+ * Version 1.0 (Rev. 1)
+ * No changes
+
+2015.4:
+ * Version 1.0 (Rev. 1)
+ * No changes
+
+2015.3:
+ * Version 1.0 (Rev. 1)
+ * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+ * Updated the fifo_generator to v13.0.  There is no change to the PRC's functionality
+ * Changed the interface type on reset and icap_reset from undef to xilinx.com:signal:reset:1.0.  This fixes a bug where IPI designer assistance connects the core's active low reset to an active high reset.
+ * Changed the API to dissalow negative bitstream sizes.
+ * Changed the GUI to make sure allocated triggers and allocated RM values are always accurately displayed in the GUI.
+ * Fixed  abug where the trigger registers couldn't be read.
+
+2015.2.1:
+ * Version 1.0
+ * No changes
+
+2015.2:
+ * Version 1.0
+ * No changes
+
+2015.1:
+ * Version 1.0
+ * Initial Release
+
+(c) Copyright 2015 - 2017 Xilinx, Inc. All rights reserved.
+
+This file contains confidential and proprietary information
+of Xilinx, Inc. and is protected under U.S. and
+international copyright and other intellectual property
+laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any
+rights to the materials distributed herewith. Except as
+otherwise provided in a valid license issued to you by
+Xilinx, and to the maximum extent permitted by applicable
+law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+(2) Xilinx shall not be liable (whether in contract or tort,
+including negligence, or under any other theory of
+liability) for any loss or damage of any kind or nature
+related to, arising under or in connection with these
+materials, including for any direct, or any indirect,
+special, incidental, or consequential loss or damage
+(including loss of data, profits, goodwill, or any type of
+loss or damage suffered as a result of any action brought
+by a third party) even if such damage or loss was
+reasonably foreseeable or Xilinx had been advised of the
+possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-
+safe, or for use in any application requiring fail-safe
+performance, such as life-support or safety devices or
+systems, Class III medical devices, nuclear facilities,
+applications related to the deployment of airbags, or any
+other applications that could lead to death, personal
+injury, or severe property or environmental damage
+(individually and collectively, "Critical
+Applications"). Customer assumes the sole risk and
+liability of any use of Xilinx products in Critical
+Applications, subject only to applicable laws and
+regulations governing limitations on product liability.
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+PART OF THIS FILE AT ALL TIMES.

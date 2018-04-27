@@ -1,0 +1,3 @@
+prd_prd.vhd,vhdl,xil_defaultlib,../../../../prd/prd_prd.vhd,
+prd.vhd,vhdl,xil_defaultlib,../../../../prd/sim/prd.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

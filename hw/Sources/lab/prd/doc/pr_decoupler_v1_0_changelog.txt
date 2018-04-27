@@ -1,0 +1,106 @@
+2017.4:
+ * Version 1.0 (Rev. 5)
+ * No changes
+
+2017.3:
+ * Version 1.0 (Rev. 5)
+ * General: Modified OOC XDC file to remove the HD.CLK_SRC properties which are no longer needed
+
+2017.2:
+ * Version 1.0 (Rev. 4)
+ * No changes
+
+2017.1:
+ * Version 1.0 (Rev. 4)
+ * General: Internal metadata change.
+
+2016.4:
+ * Version 1.0 (Rev. 3)
+ * No changes
+
+2016.3:
+ * Version 1.0 (Rev. 3)
+ * Changed the default librray for the demonstration testbench to xil_defaultlib.
+
+2016.2:
+ * Version 1.0 (Rev. 2)
+ * No changes
+
+2016.1:
+ * Version 1.0 (Rev. 2)
+ * Made the core production level
+ * Fixed a bug where the AXI4-Stream TSTRB and TKEEP signal widths were not being set correctly in IPI
+ * Fixed a bug where the AXI4-MM WSTRB signal width was not being set correctly in IPI
+ * Fixed a bug where the AXI4-MM fixed width signals were getting converted to 1 bit wide in IPI
+ * Updated the IPI propagation code to handle cases where the direction of a signal in an interface has to be changed during propagation
+ * Changes to HDL library management to support Vivado IP simulation library
+
+2015.4.2:
+ * Version 1.0 (Rev. 1)
+ * No changes
+
+2015.4.1:
+ * Version 1.0 (Rev. 1)
+ * No changes
+
+2015.4:
+ * Version 1.0 (Rev. 1)
+ * Removed support for FREQ_HZ on clocks that appear within interfaces. This was incompatible with other IP and IPI
+ * Made the CONFIG.VLNV property case sensitive to match other parts of the tool flow.
+ * Fixed a bug in IPI where manually managed disabled signals were re-enabled after validation.
+ * Fixed a bug where optional AXI4LITE signals were not enabled after IPI validation.
+ * Fixed a bug in IPI validation. The READ_WRITE_MODE was not being used to control signal presence.
+ * Fixed a bug in IPI validation. Interface parameters were not being pushed onto the slave interfaces, so they weren't being propagated
+ * Fixed a bug in IPI where write_bd_tcl would create a file that didn't contain the decoupler's configuration information.
+ * Fixed a bug in IPI validation. Not all signals were being propagated as expected.
+
+2015.3:
+ * Version 1.0
+ * Initial Release
+ * IP revision number added to HDL module, library, and include file names, to support designs with both locked and upgraded IP instances
+
+(c) Copyright 2015 - 2017 Xilinx, Inc. All rights reserved.
+
+This file contains confidential and proprietary information
+of Xilinx, Inc. and is protected under U.S. and
+international copyright and other intellectual property
+laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any
+rights to the materials distributed herewith. Except as
+otherwise provided in a valid license issued to you by
+Xilinx, and to the maximum extent permitted by applicable
+law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+(2) Xilinx shall not be liable (whether in contract or tort,
+including negligence, or under any other theory of
+liability) for any loss or damage of any kind or nature
+related to, arising under or in connection with these
+materials, including for any direct, or any indirect,
+special, incidental, or consequential loss or damage
+(including loss of data, profits, goodwill, or any type of
+loss or damage suffered as a result of any action brought
+by a third party) even if such damage or loss was
+reasonably foreseeable or Xilinx had been advised of the
+possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-
+safe, or for use in any application requiring fail-safe
+performance, such as life-support or safety devices or
+systems, Class III medical devices, nuclear facilities,
+applications related to the deployment of airbags, or any
+other applications that could lead to death, personal
+injury, or severe property or environmental damage
+(individually and collectively, "Critical
+Applications"). Customer assumes the sole risk and
+liability of any use of Xilinx products in Critical
+Applications, subject only to applicable laws and
+regulations governing limitations on product liability.
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+PART OF THIS FILE AT ALL TIMES.

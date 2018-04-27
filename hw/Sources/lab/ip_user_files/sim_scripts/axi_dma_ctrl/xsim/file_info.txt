@@ -1,0 +1,2 @@
+axi_dma_ctrl.vhd,vhdl,xil_defaultlib,../../../../axi_dma_ctrl/sim/axi_dma_ctrl.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

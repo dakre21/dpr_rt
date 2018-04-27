@@ -1,0 +1,2 @@
+jtag_axi_ctrl.v,verilog,xil_defaultlib,../../../../jtag_axi_ctrl/sim/jtag_axi_ctrl.v,incdir="../../../../jtag_axi_ctrl/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v

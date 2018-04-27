@@ -1,0 +1,9 @@
+vhdl xil_defaultlib  \
+"../../../../prc/prc_prc_table_pkg.vhd" \
+"../../../../prc/prc_prc_vsm_vs_main.vhd" \
+"../../../../prc/prc_prc_fetch.vhd" \
+"../../../../prc/prc_prc_icap_if_0.vhd" \
+"../../../../prc/prc_prc.vhd" \
+"../../../../prc/sim/prc.vhd" \
+
+nosort

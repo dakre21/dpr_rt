@@ -78,6 +78,7 @@ set_attribute module $static top_level     1
 set_attribute module $static vlog          [list [glob $rtlDir/$top/*.v]]
 set_attribute module $static synth         ${run.topSynth}
 
+
 if { ${rt} == 0 } {
   source nrt/design_nrt.tcl
 } else {

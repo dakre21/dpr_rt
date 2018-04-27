@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../../prd/prd_prd.vhd" \
+"../../../../prd/sim/prd.vhd" \
+
+nosort

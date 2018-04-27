@@ -1,0 +1,2 @@
+axi_rtl.v,verilog,xil_defaultlib,../../../../axi_rtl/sim/axi_rtl.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -1,0 +1,2 @@
+processing_system7_0.v,verilog,xil_defaultlib,../../../../processing_system7_0/sim/processing_system7_0.v,incdir="$ref_dir/../../../ipstatic/hdl"incdir="$ref_dir/../../../ipstatic/hdl/verilog"incdir="../../../ipstatic/hdl"incdir="../../../ipstatic/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v

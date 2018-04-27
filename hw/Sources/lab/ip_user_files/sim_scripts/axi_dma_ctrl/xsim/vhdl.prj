@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../axi_dma_ctrl/sim/axi_dma_ctrl.vhd" \
+
+nosort
