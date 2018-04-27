@@ -3,8 +3,8 @@
 
 set timing_nrt ./Implement/top_timing_empty_nrt.rpt
 set utilization_nrt ./Implement/top_utilization_empty_nrt.rpt
-set checkpoint_nrt ./Implement/top_route_design_empty_nrt.dcp
-set checkpoint_nrt_empty ./Implement/top_route_design_empty_nrt.dcp
+set checkpoint_nrt ./Implement/top_route_design_full_nrt.dcp
+set static_checkpoint_nrt ./Checkpoint/static_route_design_nrt.dcp
 
 # Part 1 - Create static bitstream
 # Remove all RM instances from design
@@ -25,7 +25,7 @@ update_design -cell sub_1 -black_box
 lock_design -level routing
 
 # Write checkpoint
-write_checkpoint -force Checkpoint/static_route_design_nrt.dcp
+write_checkpoint -force $static_checkpoint_nrt
 close_project
 
 # Re-open project
@@ -38,9 +38,12 @@ report_utilization -file $utilization_nrt
 report_timing_summary -file $timing_nrt
 
 # Verify routing is accurate
-pr_verify $checkpoint_nrt $checkpoint_nrt_empty
+pr_verify $checkpoint_nrt $static_checkpoint_nrt
 close_project
 
 # Write bitstream now
 open_checkpoint $checkpoint_nrt
+
+run_flow
+
 write_bitstream -force -file Bitstreams/config_full_nrt.bit

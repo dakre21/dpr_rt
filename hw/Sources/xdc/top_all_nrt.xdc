@@ -105,6 +105,26 @@
 
 
 
+# Customization
+set_property IOSTANDARD LVCMOS33 [get_ports clk_in]
+set_property IOSTANDARD LVCMOS33 [get_ports comp_eq]
+set_property IOSTANDARD LVCMOS33 [get_ports comp_gt]
+set_property IOSTANDARD LVCMOS33 [get_ports comp_lt]
+set_property IOSTANDARD LVCMOS33 [get_ports in_mux_sel]
+set_property IOSTANDARD LVCMOS33 [get_ports rst_in]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[1]}]
+
+
 # User Generated miscellaneous constraints 
 
 set_property HD.RECONFIGURABLE true [get_cells add_1]
