@@ -60,6 +60,7 @@ set bitDir    "./Bitstreams"
 ####Input Directories
 set srcDir     "./Sources"
 set rtlDir     "$srcDir/hdl"
+set ipDir      "$srcDir/lab"
 set prjDir     "$srcDir/prj"
 set xdcDir     "$srcDir/xdc"
 set coreDir    "$srcDir/cores"
@@ -76,12 +77,20 @@ add_module $static
 set_attribute module $static moduleName    $top
 set_attribute module $static top_level     1
 set_attribute module $static vlog          [list [glob $rtlDir/$top/*.v]]
-set_attribute module $static synth         ${run.topSynth}
-
 
 if { ${rt} == 0 } {
+  set_attribute module $static ip            [list $ipDir/axi_em_ctrl/axi_em_ctrl.xci \
+                                                 $ipDir/prc/prc.xci \
+                                                 $ipDir/prd/prd.xci \
+                                                 $ipDir/axi_dma_ctrl/axi_dma_ctrl.xci \
+                                                 $ipDir/axi_rtl/axi_rtl.xci \
+                                                 $ipDir/processing_system7_0/processing_system7_0.xci \
+                                                 $ipDir/jtag_axi_ctrl/jtag_axi_ctrl.xci \
+                                             ] 
+  set_attribute module $static synth         ${run.topSynth}
   source nrt/design_nrt.tcl
 } else {
+  set_attribute module $static synth         ${run.topSynth}
   source rt/design_rt.tcl
 }
 

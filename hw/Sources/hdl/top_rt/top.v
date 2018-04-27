@@ -16,22 +16,39 @@ module top (
   out,
 );
   // Initialize wires and assign them to inputs
-  parameter DATAWIDTH = 2;
-  parameter STATICWIDTH = 32;
   input clk_in, rst_in, in_mux_sel;
   input [4:0] op_sel;
   input [DATAWIDTH-1:0] a, b;
   output comp_lt, comp_gt, comp_eq;
   output reg [DATAWIDTH-1:0] out;
 
-  // TODO etup static logic
-  // PRC
-  wire [STATICWIDTH:0] vs_main_hw_triggers;
-  wire [STATICWIDTH:0] vs_main_axis_status;
-  wire vs_main_rm_shutdown_req;
-  wire vs_main_rm_decouple;
-  wire vs_main_rm_reset;
-  
+  parameter DATAWIDTH = 2;
+
+  // Initialize accessory wires for RMs
+  wire [DATAWIDTH-1:0] add_a, add_b, add_sum;
+
+  wire [DATAWIDTH-1:0] comp_a, comp_b;
+  wire comp_gt, comp_lt, comp_eq;
+
+  wire [DATAWIDTH-1:0] dec_a, dec_d;
+
+  wire [DATAWIDTH-1:0] div_a, div_b, div_quot;
+
+  wire [DATAWIDTH-1:0] inc_a, inc_d;
+
+  wire [DATAWIDTH-1:0] mod_a, mod_b, mod_rem;
+
+  wire [DATAWIDTH-1:0] mux_a, mux_b, mux_d;
+  wire mux_sel;
+
+  wire [DATAWIDTH-1:0] reg_d, reg_q;
+
+  wire [DATAWIDTH-1:0] shl_d, shl_a, shl_sh_amt;
+
+  wire [DATAWIDTH-1:0] shr_a, shr_d, shr_sh_amt;
+
+  wire [DATAWIDTH-1:0] sub_a, sub_b, sub_diff;
+
   // Instantiate modules
   ADD #(DATAWIDTH) add_1 (
     .a   (add_a),
