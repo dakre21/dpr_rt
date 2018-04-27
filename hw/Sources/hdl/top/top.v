@@ -136,7 +136,7 @@ module top (
   );
 
   // External Memory Controller
-  /*wire [31:1]mem_a;
+  wire [31:1]mem_a;
   wire [1:0]mem_ben;
   wire [0:0]mem_ce;
   wire [0:0]mem_cen;
@@ -170,6 +170,11 @@ module top (
   wire s_axi_mem_wready;
   wire [3:0]s_axi_mem_wstrb;
   wire s_axi_mem_wvalid;
+  wire s_axi_reg_emc_awready;
+  wire s_axi_reg_emc_bvalid;
+  wire s_axi_reg_emc_rvalid;
+  wire [31:0]s_axi_reg_emc_rdata;
+  wire s_axi_reg_emc_arready;
 
   axi_em_ctrl axi_em_ctrl_1 (
         .mem_a(mem_a),
@@ -217,16 +222,16 @@ module top (
         .s_axi_mem_wstrb(s_axi_mem_wstrb),
         .s_axi_mem_wvalid(s_axi_mem_wvalid),
         .s_axi_reg_araddr(s_axi_reg_araddr[4:2]),
-        .s_axi_reg_arready(s_axi_reg_arready),
+        .s_axi_reg_arready(s_axi_reg_emc_arready),
         .s_axi_reg_arvalid(s_axi_reg_arvalid),
         .s_axi_reg_awaddr(s_axi_reg_awaddr[4:2]),
-        .s_axi_reg_awready(s_axi_reg_awready),
+        .s_axi_reg_awready(s_axi_reg_emc_awready),
         .s_axi_reg_awvalid(s_axi_reg_awvalid),
         .s_axi_reg_bready(s_axi_reg_bready),
-        .s_axi_reg_bvalid(s_axi_reg_bvalid),
-        .s_axi_reg_rdata({s_axi_reg_rdata [31:30],s_axi_reg_rdata [6:0]}),
+        .s_axi_reg_bvalid(s_axi_reg_emc_bvalid),
+        .s_axi_reg_rdata({s_axi_reg_emc_rdata [31:30],s_axi_reg_emc_rdata [6:0]}),
         .s_axi_reg_rready(s_axi_reg_rready),
-        .s_axi_reg_rvalid(s_axi_reg_rvalid),
+        .s_axi_reg_rvalid(s_axi_reg_emc_rvalid),
         .s_axi_reg_wdata({s_axi_reg_wdata[31:30],s_axi_reg_wdata[6:0]}),
         .s_axi_reg_wvalid(s_axi_reg_wvalid)
   );
@@ -348,6 +353,11 @@ module top (
   wire s_rp_sub_TLAST;
   wire s_rp_sub_TREADY;
   wire s_rp_sub_TVALID;
+  wire s_axi_reg_prd_awready;
+  wire s_axi_reg_prd_bvalid;
+  wire s_axi_reg_prd_rvalid;
+  wire [31:0]s_axi_reg_prd_rdata;
+  wire s_axi_reg_prd_arready;
 
   (* C_XDEVICEFAMILY = "zynq" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
@@ -431,18 +441,18 @@ module top (
         .rp_sub_ref_clk(clk),
         .s_axi_reg_araddr(s_axi_reg_araddr),
         .s_axi_reg_aresetn(s_axi_reg_aresetn),
-        .s_axi_reg_arready(s_axi_reg_arready),
+        .s_axi_reg_arready(s_axi_reg_prd_arready),
         .s_axi_reg_arvalid(s_axi_reg_arvalid),
         .s_axi_reg_awaddr(s_axi_reg_awaddr),
-        .s_axi_reg_awready(s_axi_reg_awready),
+        .s_axi_reg_awready(s_axi_reg_prd_awready),
         .s_axi_reg_awvalid(s_axi_reg_awvalid),
         .s_axi_reg_bready(s_axi_reg_bready),
         .s_axi_reg_bresp(s_axi_reg_bresp),
-        .s_axi_reg_bvalid(s_axi_reg_bvalid),
-        .s_axi_reg_rdata(s_axi_reg_rdata),
+        .s_axi_reg_bvalid(s_axi_reg_prd_bvalid),
+        .s_axi_reg_rdata(s_axi_reg_prd_rdata),
         .s_axi_reg_rready(s_axi_reg_rready),
         .s_axi_reg_rresp(s_axi_reg_rresp),
-        .s_axi_reg_rvalid(s_axi_reg_rvalid),
+        .s_axi_reg_rvalid(s_axi_reg_prd_rvalid),
         .s_axi_reg_wdata(s_axi_reg_wdata),
         .s_axi_reg_wready(s_axi_reg_wready),
         .s_axi_reg_wvalid(s_axi_reg_wvalid),
