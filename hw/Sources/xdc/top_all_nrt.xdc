@@ -193,97 +193,6 @@ current_instance prd_1/U0
 set_false_path -to [get_pins -hier *cdc_to*/D]
 
 
-####################################################################################
-# Constraints from file : 'processing_system7_0.xdc'
-####################################################################################
-
-############################################################################
-##
-##  Xilinx, Inc. 2006            www.xilinx.com
-############################################################################
-##  File name :       ps7_constraints.xdc
-##
-##  Details :     Constraints file
-##                    FPGA family:       zynq
-##                    FPGA:              xc7z020clg400-1
-##                    Device Size:        xc7z020
-##                    Package:            clg400
-##                    Speedgrade:         -1
-##
-##
-############################################################################
-############################################################################
-############################################################################
-# Clock constraints                                                        #
-############################################################################
-current_instance -quiet
-current_instance processing_system7_0_1/inst
-create_clock -period 20.000 -name clk_fpga_0 [get_pins {PS7_i/FCLKCLK[0]}]
-set_input_jitter clk_fpga_0 0.600
-#The clocks are asynchronous, user should constrain them appropriately.#
-
-
-############################################################################
-# I/O STANDARDS and Location Constraints                                   #
-############################################################################
-
-#  GPIO / gpio[53] / MIO[53]
-#  GPIO / gpio[52] / MIO[52]
-#  GPIO / gpio[51] / MIO[51]
-#  GPIO / gpio[50] / MIO[50]
-#  GPIO / gpio[49] / MIO[49]
-#  GPIO / gpio[48] / MIO[48]
-#  GPIO / gpio[47] / MIO[47]
-#  GPIO / gpio[46] / MIO[46]
-#  SD 0 / data[3] / MIO[45]
-#  SD 0 / data[2] / MIO[44]
-#  SD 0 / data[1] / MIO[43]
-#  SD 0 / data[0] / MIO[42]
-#  SD 0 / cmd / MIO[41]
-#  SD 0 / clk / MIO[40]
-#  GPIO / gpio[39] / MIO[39]
-#  GPIO / gpio[38] / MIO[38]
-#  GPIO / gpio[37] / MIO[37]
-#  GPIO / gpio[36] / MIO[36]
-#  GPIO / gpio[35] / MIO[35]
-#  GPIO / gpio[34] / MIO[34]
-#  GPIO / gpio[33] / MIO[33]
-#  GPIO / gpio[32] / MIO[32]
-#  GPIO / gpio[31] / MIO[31]
-#  GPIO / gpio[30] / MIO[30]
-#  GPIO / gpio[29] / MIO[29]
-#  GPIO / gpio[28] / MIO[28]
-#  Enet 0 / rx_ctl / MIO[27]
-#  Enet 0 / rxd[3] / MIO[26]
-#  Enet 0 / rxd[2] / MIO[25]
-#  Enet 0 / rxd[1] / MIO[24]
-#  Enet 0 / rxd[0] / MIO[23]
-#  Enet 0 / rx_clk / MIO[22]
-#  Enet 0 / tx_ctl / MIO[21]
-#  Enet 0 / txd[3] / MIO[20]
-#  Enet 0 / txd[2] / MIO[19]
-#  Enet 0 / txd[1] / MIO[18]
-#  Enet 0 / txd[0] / MIO[17]
-#  Enet 0 / tx_clk / MIO[16]
-#  GPIO / gpio[15] / MIO[15]
-#  GPIO / gpio[14] / MIO[14]
-#  GPIO / gpio[13] / MIO[13]
-#  GPIO / gpio[12] / MIO[12]
-#  UART 0 / tx / MIO[11]
-#  UART 0 / rx / MIO[10]
-#  GPIO / gpio[9] / MIO[9]
-#  GPIO / gpio[8] / MIO[8]
-#  GPIO / gpio[7] / MIO[7]
-#  GPIO / gpio[6] / MIO[6]
-#  GPIO / gpio[5] / MIO[5]
-#  GPIO / gpio[4] / MIO[4]
-#  GPIO / gpio[3] / MIO[3]
-#  GPIO / gpio[2] / MIO[2]
-#  GPIO / gpio[1] / MIO[1]
-#  GPIO / gpio[0] / MIO[0]
-
-
-
 
 ####################################################################################
 # Constraints from file : 'top_io.xdc'
@@ -318,8 +227,6 @@ set_input_jitter clk_fpga_0 0.600
 ############################################################################
 # Clock constraints                                                        #
 ############################################################################
-current_instance -quiet
-set_input_jitter clk_fpga_0 0.600
 #The clocks are asynchronous, user should constrain them appropriately.#
 
 
@@ -388,6 +295,7 @@ set_input_jitter clk_fpga_0 0.600
 
 
 # Customization
+current_instance -quiet
 set_property IOSTANDARD LVCMOS33 [get_ports comp_eq]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_gt]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_lt]
@@ -473,6 +381,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports icap_reset]
 set_property IOSTANDARD LVCMOS33 [get_ports mux_sel]
 set_property IOSTANDARD LVCMOS33 [get_ports rst]
 
+#set_property DONT_TOUCH true [get_cells prc_1/U0/i_vsm_vs_main/current_state[1]_i_16]
+#set_property DONT_TOUCH true [get_cells axi_em_ctrl_1/U0/EMC_CTRL_I/MEM_STATE_MACHINE_I/wlast_reg_i_3]
+#set_property DONT_TOUCH true [get_cells prc_1/U0/i_cp0/icap_o_preswap[24]_i_16]
+#set_property DONT_TOUCH true [get_cells]
 
 
 ####################################################################################

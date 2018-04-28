@@ -363,8 +363,6 @@ module top (
   wire [1:0]s_axi_reg_rresp;
   wire s_axi_reg_prd_wready;
 
-  (* C_XDEVICEFAMILY = "zynq" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
   prd prd_1 (
         .aclk(clk),
         .decouple(vsm_vs_main_rm_decouple),
@@ -515,76 +513,86 @@ module top (
   );
 
   // AXI To JTAG
-  /*wire m_axi_arlock;
+  /*wire [31:0]m_axi_araddr;
+  wire [1:0]m_axi_arburst;
+  wire [3:0]m_axi_arcache;
+  wire [0:0]m_axi_arid;
+  wire [7:0]m_axi_arlen;
+  wire m_axi_arlock;
+  wire [2:0]m_axi_arprot;
   wire [3:0]m_axi_arqos;
+  wire m_axi_arready;
+  wire [2:0]m_axi_arsize;
+  wire m_axi_arvalid;
+  wire [31:0]m_axi_awaddr;
+  wire [1:0]m_axi_awburst;
   wire [3:0]m_axi_awcache;
+  wire [0:0]m_axi_awid;
+  wire [7:0]m_axi_awlen;
   wire m_axi_awlock;
   wire [2:0]m_axi_awprot;
   wire [3:0]m_axi_awqos;
-  wire [31:0]m_axi_awaddr;
+  wire m_axi_awready;
+  wire [2:0]m_axi_awsize;
+  wire m_axi_awvalid;
+  wire [0:0]m_axi_bid;
+  wire m_axi_bready;
+  wire [1:0]m_axi_bresp;
+  wire m_axi_bvalid;
+  wire [31:0]m_axi_rdata;
+  wire [0:0]m_axi_rid;
+  wire m_axi_rlast;
+  wire m_axi_rready;
+  wire [1:0]m_axi_rresp;
+  wire m_axi_rvalid;
   wire [31:0]m_axi_wdata;
-  wire s_axi_mem_jtag_rready;
-  wire [1:0]s_axi_mem_jtag_arburst;
-  wire [7:0]s_axi_mem_arlen;
-  wire [2:0]s_axi_mem_jtag_arsize;
-  wire [31:0]s_axi_mem_jtag_araddr;
-  wire s_axi_mem_jtag_arvalid;
+  wire m_axi_wlast;
+  wire m_axi_wready;
+  wire [3:0]m_axi_wstrb;
+  wire m_axi_wvalid;
 
-  (* AXI_64BIT_ADDR = "0" *) 
-  (* FAMILY = "zynq" *) 
-  (* GC_XSDB_S_IPORT_WIDTH = "37" *) 
-  (* GC_XSDB_S_OPORT_WIDTH = "17" *) 
-  (* M_AXI_ADDR_WIDTH = "32" *) 
-  (* M_AXI_DATA_WIDTH = "32" *) 
-  (* M_AXI_ID_WIDTH = "1" *) 
-  (* M_HAS_BURST = "1" *) 
-  (* PROTOCOL = "0" *) 
-  (* RD_CMDFIFO_DATA_WIDTH = "64" *) 
-  (* RD_TXN_QUEUE_LENGTH = "1" *) 
-  (* WR_CMDFIFO_DATA_WIDTH = "64" *) 
-  (* WR_TXN_QUEUE_LENGTH = "1" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
+
   jtag_axi_ctrl jtag_axi_ctrl_0 (
         .aclk(clk),
         .aresetn(rst),
-        .m_axi_araddr(s_axi_mem_jtag_araddr),
-        .m_axi_arburst(s_axi_mem_jtag_arburst),
-        .m_axi_arcache(s_axi_mem_arcache),
-        .m_axi_arid(s_axi_mem_arid),
-        .m_axi_arlen(s_axi_mem_jtag_arlen),
+        .m_axi_araddr(s_axi_reg_araddr),
+        .m_axi_arburst(m_axi_arburst),
+        .m_axi_arcache(m_axi_arcache),
+        .m_axi_arid(m_axi_arid),
+        .m_axi_arlen(m_axi_arlen),
         .m_axi_arlock(m_axi_arlock),
-        .m_axi_arprot(s_axi_mem_arprot),
+        .m_axi_arprot(m_axi_arprot),
         .m_axi_arqos(m_axi_arqos),
-        .m_axi_arready(s_axi_mem_arready),
-        .m_axi_arsize(s_axi_mem_jtag_arsize),
-        .m_axi_arvalid(s_axi_mem_jtag_arvalid),
-        .m_axi_awaddr(m_axi_awaddr),
-        .m_axi_awburst(s_axi_mem_awburst),
+        .m_axi_arready(s_axi_reg_arready),
+        .m_axi_arsize(m_axi_arsize),
+        .m_axi_arvalid(s_axi_reg_arvalid),
+        .m_axi_awaddr(s_axi_reg_awaddr),
+        .m_axi_awburst(m_axi_awburst),
         .m_axi_awcache(m_axi_awcache),
-        .m_axi_awid(s_axi_mem_awid),
-        .m_axi_awlen(s_axi_mem_awlen),
+        .m_axi_awid(m_axi_awid),
+        .m_axi_awlen(m_axi_awlen),
         .m_axi_awlock(m_axi_awlock),
         .m_axi_awprot(m_axi_awprot),
         .m_axi_awqos(m_axi_awqos),
-        .m_axi_awready(s_axi_mem_awready),
-        .m_axi_awsize(s_axi_mem_awsize),
-        .m_axi_awvalid(s_axi_mem_awvalid),
-        .m_axi_bid(s_axi_mem_bid),
-        .m_axi_bready(s_axi_mem_bready),
-        .m_axi_bresp(s_axi_mem_bresp),
-        .m_axi_bvalid(s_axi_mem_bvalid),
-        .m_axi_rdata(s_axi_mem_rdata),
-        .m_axi_rid(s_axi_mem_rid),
-        .m_axi_rlast(s_axi_mem_rlast),
-        .m_axi_rready(s_axi_mem_jtag_rready),
-        .m_axi_rresp(s_axi_mem_rresp),
-        .m_axi_rvalid(s_axi_mem_rvalid),
-        .m_axi_wdata(m_axi_wdata),
-        .m_axi_wlast(s_axi_mem_wlast),
-        .m_axi_wready(s_axi_mem_wready),
-        .m_axi_wstrb(s_axi_mem_wstrb),
-        .m_axi_wvalid(s_axi_mem_wvalid)
-  );*/
+        .m_axi_awready(s_axi_reg_awready),
+        .m_axi_awsize(m_axi_awsize),
+        .m_axi_awvalid(s_axi_reg_awvalid),
+        .m_axi_bid(m_axi_bid),
+        .m_axi_bready(s_axi_reg_bready),
+        .m_axi_bresp(s_axi_reg_bresp),
+        .m_axi_bvalid(s_axi_reg_bvalid),
+        .m_axi_rdata(s_axi_reg_rdata),
+        .m_axi_rid(m_axi_rid),
+        .m_axi_rlast(m_axi_rlast),
+        .m_axi_rready(s_axi_reg_rready),
+        .m_axi_rresp(s_axi_reg_rresp),
+        .m_axi_rvalid(s_axi_reg_rvalid),
+        .m_axi_wdata(s_axi_reg_wdata),
+        .m_axi_wlast(m_axi_wlast),
+        .m_axi_wready(s_axi_reg_wready),
+        .m_axi_wstrb(m_axi_wstrb),
+        .m_axi_wvalid(s_axi_reg_wvalid)
+  );
 
   // PS7
   wire [14:0]DDR_Addr;
@@ -638,64 +646,6 @@ module top (
   wire DMA0_DRLAST;
   wire DMA0_DRVALID;
 
-  (* C_DM_WIDTH = "4" *) 
-  (* C_DQS_WIDTH = "4" *) 
-  (* C_DQ_WIDTH = "32" *) 
-  (* C_EMIO_GPIO_WIDTH = "64" *) 
-  (* C_EN_EMIO_ENET0 = "0" *) 
-  (* C_EN_EMIO_ENET1 = "0" *) 
-  (* C_EN_EMIO_PJTAG = "0" *) 
-  (* C_EN_EMIO_TRACE = "0" *) 
-  (* C_FCLK_CLK0_BUF = "TRUE" *) 
-  (* C_FCLK_CLK1_BUF = "FALSE" *) 
-  (* C_FCLK_CLK2_BUF = "FALSE" *) 
-  (* C_FCLK_CLK3_BUF = "FALSE" *) 
-  (* C_GP0_EN_MODIFIABLE_TXN = "1" *) 
-  (* C_GP1_EN_MODIFIABLE_TXN = "1" *) 
-  (* C_INCLUDE_ACP_TRANS_CHECK = "0" *) 
-  (* C_INCLUDE_TRACE_BUFFER = "0" *) 
-  (* C_IRQ_F2P_MODE = "DIRECT" *) 
-  (* C_MIO_PRIMITIVE = "54" *) 
-  (* C_M_AXI_GP0_ENABLE_STATIC_REMAP = "0" *) 
-  (* C_M_AXI_GP0_ID_WIDTH = "12" *) 
-  (* C_M_AXI_GP0_THREAD_ID_WIDTH = "12" *) 
-  (* C_M_AXI_GP1_ENABLE_STATIC_REMAP = "0" *) 
-  (* C_M_AXI_GP1_ID_WIDTH = "12" *) 
-  (* C_M_AXI_GP1_THREAD_ID_WIDTH = "12" *) 
-  (* C_NUM_F2P_INTR_INPUTS = "1" *) 
-  (* C_PACKAGE_NAME = "clg400" *) 
-  (* C_PS7_SI_REV = "PRODUCTION" *) 
-  (* C_S_AXI_ACP_ARUSER_VAL = "31" *) 
-  (* C_S_AXI_ACP_AWUSER_VAL = "31" *) 
-  (* C_S_AXI_ACP_ID_WIDTH = "3" *) 
-  (* C_S_AXI_GP0_ID_WIDTH = "6" *) 
-  (* C_S_AXI_GP1_ID_WIDTH = "6" *) 
-  (* C_S_AXI_HP0_DATA_WIDTH = "64" *) 
-  (* C_S_AXI_HP0_ID_WIDTH = "6" *) 
-  (* C_S_AXI_HP1_DATA_WIDTH = "64" *) 
-  (* C_S_AXI_HP1_ID_WIDTH = "6" *) 
-  (* C_S_AXI_HP2_DATA_WIDTH = "64" *) 
-  (* C_S_AXI_HP2_ID_WIDTH = "6" *) 
-  (* C_S_AXI_HP3_DATA_WIDTH = "64" *) 
-  (* C_S_AXI_HP3_ID_WIDTH = "6" *) 
-  (* C_TRACE_BUFFER_CLOCK_DELAY = "12" *) 
-  (* C_TRACE_BUFFER_FIFO_SIZE = "128" *) 
-  (* C_TRACE_INTERNAL_WIDTH = "2" *) 
-  (* C_TRACE_PIPELINE_WIDTH = "8" *) 
-  (* C_USE_AXI_NONSECURE = "0" *) 
-  (* C_USE_DEFAULT_ACP_USER_VAL = "0" *) 
-  (* C_USE_M_AXI_GP0 = "1" *) 
-  (* C_USE_M_AXI_GP1 = "0" *) 
-  (* C_USE_S_AXI_ACP = "0" *) 
-  (* C_USE_S_AXI_GP0 = "0" *) 
-  (* C_USE_S_AXI_GP1 = "0" *) 
-  (* C_USE_S_AXI_HP0 = "0" *) 
-  (* C_USE_S_AXI_HP1 = "0" *) 
-  (* C_USE_S_AXI_HP2 = "0" *) 
-  (* C_USE_S_AXI_HP3 = "0" *) 
-  (* HW_HANDOFF = "processing_system7_0.hwdef" *) 
-  (* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS33} bidis={20} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={14} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS33} bidis={12} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={10} usageRate={0.5} />/>" *) 
-  (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
   processing_system7_0 processing_system7_0_1 (
         .DDR_Addr(DDR_Addr),
         .DDR_BankAddr(DDR_BankAddr),
@@ -766,80 +716,84 @@ module top (
         .PS_CLK(PS_CLK),
         .PS_PORB(PS_PORB),
         .PS_SRSTB(PS_SRSTB)
-  );
+  );*/
+  
+  // Declare wires for modules
+  wire [DATAWIDTH-1:0] add_sum, div_quot, inc_d, dec_d, mod_rem;
+  wire [DATAWIDTH-1:0] mul_prod, mux_d, reg_q, shl_d, shr_d, sub_diff; 
 
   // Instantiate modules
   ADD #(DATAWIDTH) add_1 (
-    .a   (add_a),
-    .b   (add_b),
+    .a   (a),
+    .b   (b),
     .sum (add_sum)
   );
 
   COMP #(DATAWIDTH) comp_1 (
-    .a   (comp_a),
-    .b   (comp_b),
+    .a   (a),
+    .b   (b),
     .gt  (comp_gt),
     .lt  (comp_lt),
     .eq  (comp_eq)
   );
 
   DEC #(DATAWIDTH) dec_1 (
-    .a (dec_a),
+    .a (a),
     .d (dec_d)
   );
 
   DIV #(DATAWIDTH) div_1 (
-    .a     (div_a),
-    .b     (div_b),
+    .a     (a),
+    .b     (b),
     .quot  (div_quot)
   );
 
   INC #(DATAWIDTH) inc_1 (
-    .a (inc_a),
+    .a (a),
     .d (inc_d)
   );
 
   MOD #(DATAWIDTH) mod_1 (
-    .a   (mod_a),
-    .b   (mod_b),
+    .a   (a),
+    .b   (b),
     .rem (mod_rem)
   );
 
   MUL #(DATAWIDTH) mul_1 (
-    .a    (mul_a),
-    .b    (mul_b),
+    .a    (a),
+    .b    (b),
     .prod (mul_prod)
   );
 
   MUX2x1 #(DATAWIDTH) mux_1 (
-    .a    (mux_a),
-    .b    (mux_b),
-    .d    (mux_d),
+    .a    (a),
+    .b    (b),
+    .d    (d),
     .sel  (mux_sel)
   );
 
   REG #(DATAWIDTH) reg_1 (
-    .d   (reg_d),
+    .d   (d),
     .q   (reg_q),
     .Clk (clk),
     .Rst (rst)
   );
 
   SHL #(DATAWIDTH) shl_1 (
-    .a      (shl_a),
+    .a      (a),
     .sh_amt (shl_sh_amt),
     .d      (shl_d)
   );
 
   SHR #(DATAWIDTH) shr_1 (
-    .a      (shr_a),
+    .a      (a),
     .sh_amt (shr_sh_amt),
     .d      (shr_d)
   );
 
   SUB #(DATAWIDTH) sub_1 (
-    .a     (sub_a),
-    .b     (sub_b),
+    .a     (a),
+    .b     (b),
     .diff  (sub_diff)
   );
 
