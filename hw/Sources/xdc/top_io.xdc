@@ -739,3 +739,5 @@ set_property IOSTANDARD LVCMOS33 [get_ports [list clk]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list icap_reset]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list mux_sel]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list rst]]
+
+et_property DONT_TOUCH true [get_cells prc_1/U0/i_vsm_vs_main/current_state[1]_i_16]

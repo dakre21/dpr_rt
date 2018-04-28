@@ -135,6 +135,155 @@ current_instance prc_1/U0
 set_false_path -to [get_pins -hier *cdc_to*/D]
 
 
+####################################################################################
+# Constraints from file : 'prd.xdc'
+####################################################################################
+
+#  (c) Copyright 2015 Xilinx, Inc. All rights reserved.
+#
+#  This file contains confidential and proprietary information
+#  of Xilinx, Inc. and is protected under U.S. and
+#  international copyright and other intellectual property
+#  laws.
+#
+#  DISCLAIMER
+#  This disclaimer is not a license and does not grant any
+#  rights to the materials distributed herewith. Except as
+#  otherwise provided in a valid license issued to you by
+#  Xilinx, and to the maximum extent permitted by applicable
+#  law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+#  WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+#  AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+#  BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+#  INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+#  (2) Xilinx shall not be liable (whether in contract or tort,
+#  including negligence, or under any other theory of
+#  liability) for any loss or damage of any kind or nature
+#  related to, arising under or in connection with these
+#  materials, including for any direct, or any indirect,
+#  special, incidental, or consequential loss or damage
+#  (including loss of data, profits, goodwill, or any type of
+#  loss or damage suffered as a result of any action brought
+#  by a third party) even if such damage or loss was
+#  reasonably foreseeable or Xilinx had been advised of the
+#  possibility of the same.
+#
+#  CRITICAL APPLICATIONS
+#  Xilinx products are not designed or intended to be fail-
+#  safe, or for use in any application requiring fail-safe
+#  performance, such as life-support or safety devices or
+#  systems, Class III medical devices, nuclear facilities,
+#  applications related to the deployment of airbags, or any
+#  other applications that could lead to death, personal
+#  injury, or severe property or environmental damage
+#  (individually and collectively, "Critical
+#  Applications"). Customer assumes the sole risk and
+#  liability of any use of Xilinx products in Critical
+#  Applications, subject only to applicable laws and
+#  regulations governing limitations on product liability.
+#
+#  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+#  PART OF THIS FILE AT ALL TIMES.
+# --------------------------------------------------------------------------
+#-----------------------------------
+# CDC Synchroniser constraints
+#-----------------------------------
+current_instance -quiet
+current_instance prd_1/U0
+set_false_path -to [get_pins -hier *cdc_to*/D]
+
+
+####################################################################################
+# Constraints from file : 'processing_system7_0.xdc'
+####################################################################################
+
+############################################################################
+##
+##  Xilinx, Inc. 2006            www.xilinx.com
+############################################################################
+##  File name :       ps7_constraints.xdc
+##
+##  Details :     Constraints file
+##                    FPGA family:       zynq
+##                    FPGA:              xc7z020clg400-1
+##                    Device Size:        xc7z020
+##                    Package:            clg400
+##                    Speedgrade:         -1
+##
+##
+############################################################################
+############################################################################
+############################################################################
+# Clock constraints                                                        #
+############################################################################
+current_instance -quiet
+current_instance processing_system7_0_1/inst
+create_clock -period 20.000 -name clk_fpga_0 [get_pins {PS7_i/FCLKCLK[0]}]
+set_input_jitter clk_fpga_0 0.600
+#The clocks are asynchronous, user should constrain them appropriately.#
+
+
+############################################################################
+# I/O STANDARDS and Location Constraints                                   #
+############################################################################
+
+#  GPIO / gpio[53] / MIO[53]
+#  GPIO / gpio[52] / MIO[52]
+#  GPIO / gpio[51] / MIO[51]
+#  GPIO / gpio[50] / MIO[50]
+#  GPIO / gpio[49] / MIO[49]
+#  GPIO / gpio[48] / MIO[48]
+#  GPIO / gpio[47] / MIO[47]
+#  GPIO / gpio[46] / MIO[46]
+#  SD 0 / data[3] / MIO[45]
+#  SD 0 / data[2] / MIO[44]
+#  SD 0 / data[1] / MIO[43]
+#  SD 0 / data[0] / MIO[42]
+#  SD 0 / cmd / MIO[41]
+#  SD 0 / clk / MIO[40]
+#  GPIO / gpio[39] / MIO[39]
+#  GPIO / gpio[38] / MIO[38]
+#  GPIO / gpio[37] / MIO[37]
+#  GPIO / gpio[36] / MIO[36]
+#  GPIO / gpio[35] / MIO[35]
+#  GPIO / gpio[34] / MIO[34]
+#  GPIO / gpio[33] / MIO[33]
+#  GPIO / gpio[32] / MIO[32]
+#  GPIO / gpio[31] / MIO[31]
+#  GPIO / gpio[30] / MIO[30]
+#  GPIO / gpio[29] / MIO[29]
+#  GPIO / gpio[28] / MIO[28]
+#  Enet 0 / rx_ctl / MIO[27]
+#  Enet 0 / rxd[3] / MIO[26]
+#  Enet 0 / rxd[2] / MIO[25]
+#  Enet 0 / rxd[1] / MIO[24]
+#  Enet 0 / rxd[0] / MIO[23]
+#  Enet 0 / rx_clk / MIO[22]
+#  Enet 0 / tx_ctl / MIO[21]
+#  Enet 0 / txd[3] / MIO[20]
+#  Enet 0 / txd[2] / MIO[19]
+#  Enet 0 / txd[1] / MIO[18]
+#  Enet 0 / txd[0] / MIO[17]
+#  Enet 0 / tx_clk / MIO[16]
+#  GPIO / gpio[15] / MIO[15]
+#  GPIO / gpio[14] / MIO[14]
+#  GPIO / gpio[13] / MIO[13]
+#  GPIO / gpio[12] / MIO[12]
+#  UART 0 / tx / MIO[11]
+#  UART 0 / rx / MIO[10]
+#  GPIO / gpio[9] / MIO[9]
+#  GPIO / gpio[8] / MIO[8]
+#  GPIO / gpio[7] / MIO[7]
+#  GPIO / gpio[6] / MIO[6]
+#  GPIO / gpio[5] / MIO[5]
+#  GPIO / gpio[4] / MIO[4]
+#  GPIO / gpio[3] / MIO[3]
+#  GPIO / gpio[2] / MIO[2]
+#  GPIO / gpio[1] / MIO[1]
+#  GPIO / gpio[0] / MIO[0]
+
+
+
 
 ####################################################################################
 # Constraints from file : 'top_io.xdc'
@@ -169,6 +318,8 @@ set_false_path -to [get_pins -hier *cdc_to*/D]
 ############################################################################
 # Clock constraints                                                        #
 ############################################################################
+current_instance -quiet
+set_input_jitter clk_fpga_0 0.600
 #The clocks are asynchronous, user should constrain them appropriately.#
 
 
@@ -237,7 +388,6 @@ set_false_path -to [get_pins -hier *cdc_to*/D]
 
 
 # Customization
-current_instance -quiet
 set_property IOSTANDARD LVCMOS33 [get_ports comp_eq]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_gt]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_lt]
@@ -322,6 +472,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports icap_reset]
 set_property IOSTANDARD LVCMOS33 [get_ports mux_sel]
 set_property IOSTANDARD LVCMOS33 [get_ports rst]
+
 
 
 ####################################################################################

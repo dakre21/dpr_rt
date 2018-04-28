@@ -175,6 +175,7 @@ module top (
   wire s_axi_reg_emc_rvalid;
   wire [31:0]s_axi_reg_emc_rdata;
   wire s_axi_reg_emc_arready;
+  wire [31:0]s_axi_reg_emc_araddr;
 
   axi_em_ctrl axi_em_ctrl_1 (
         .mem_a(mem_a),
@@ -221,7 +222,7 @@ module top (
         .s_axi_mem_wready(s_axi_mem_wready),
         .s_axi_mem_wstrb(s_axi_mem_wstrb),
         .s_axi_mem_wvalid(s_axi_mem_wvalid),
-        .s_axi_reg_araddr(s_axi_reg_araddr[4:2]),
+        .s_axi_reg_araddr(s_axi_reg_emc_araddr[4:2]),
         .s_axi_reg_arready(s_axi_reg_emc_arready),
         .s_axi_reg_arvalid(s_axi_reg_arvalid),
         .s_axi_reg_awaddr(s_axi_reg_awaddr[4:2]),
@@ -237,7 +238,7 @@ module top (
   );
 
   // PRD 
-  /*wire decouple_status;
+  wire decouple_status;
   wire [31:0]m_axis_status_tdata;
   wire m_axis_status_tvalid;
   wire rp_add_decouple_status;
@@ -358,6 +359,9 @@ module top (
   wire s_axi_reg_prd_rvalid;
   wire [31:0]s_axi_reg_prd_rdata;
   wire s_axi_reg_prd_arready;
+  wire [1:0]s_axi_reg_prd_bresp;
+  wire [1:0]s_axi_reg_rresp;
+  wire s_axi_reg_prd_wready;
 
   (* C_XDEVICEFAMILY = "zynq" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
@@ -447,14 +451,14 @@ module top (
         .s_axi_reg_awready(s_axi_reg_prd_awready),
         .s_axi_reg_awvalid(s_axi_reg_awvalid),
         .s_axi_reg_bready(s_axi_reg_bready),
-        .s_axi_reg_bresp(s_axi_reg_bresp),
+        .s_axi_reg_bresp(s_axi_reg_prd_bresp),
         .s_axi_reg_bvalid(s_axi_reg_prd_bvalid),
         .s_axi_reg_rdata(s_axi_reg_prd_rdata),
         .s_axi_reg_rready(s_axi_reg_rready),
-        .s_axi_reg_rresp(s_axi_reg_rresp),
+        .s_axi_reg_rresp(s_axi_reg_prd_rresp),
         .s_axi_reg_rvalid(s_axi_reg_prd_rvalid),
         .s_axi_reg_wdata(s_axi_reg_wdata),
-        .s_axi_reg_wready(s_axi_reg_wready),
+        .s_axi_reg_wready(s_axi_reg_prd_wready),
         .s_axi_reg_wvalid(s_axi_reg_wvalid),
         .s_axis_ctrl_aresetn(s_axis_ctrl_aresetn),
         .s_axis_ctrl_tdata(s_axis_ctrl_tdata),
@@ -511,7 +515,7 @@ module top (
   );
 
   // AXI To JTAG
-  wire m_axi_arlock;
+  /*wire m_axi_arlock;
   wire [3:0]m_axi_arqos;
   wire [3:0]m_axi_awcache;
   wire m_axi_awlock;
@@ -519,6 +523,12 @@ module top (
   wire [3:0]m_axi_awqos;
   wire [31:0]m_axi_awaddr;
   wire [31:0]m_axi_wdata;
+  wire s_axi_mem_jtag_rready;
+  wire [1:0]s_axi_mem_jtag_arburst;
+  wire [7:0]s_axi_mem_arlen;
+  wire [2:0]s_axi_mem_jtag_arsize;
+  wire [31:0]s_axi_mem_jtag_araddr;
+  wire s_axi_mem_jtag_arvalid;
 
   (* AXI_64BIT_ADDR = "0" *) 
   (* FAMILY = "zynq" *) 
@@ -534,22 +544,20 @@ module top (
   (* WR_CMDFIFO_DATA_WIDTH = "64" *) 
   (* WR_TXN_QUEUE_LENGTH = "1" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-
-
   jtag_axi_ctrl jtag_axi_ctrl_0 (
         .aclk(clk),
         .aresetn(rst),
-        .m_axi_araddr(s_axi_mem_araddr),
-        .m_axi_arburst(s_axi_mem_arburst),
+        .m_axi_araddr(s_axi_mem_jtag_araddr),
+        .m_axi_arburst(s_axi_mem_jtag_arburst),
         .m_axi_arcache(s_axi_mem_arcache),
         .m_axi_arid(s_axi_mem_arid),
-        .m_axi_arlen(s_axi_mem_arlen),
+        .m_axi_arlen(s_axi_mem_jtag_arlen),
         .m_axi_arlock(m_axi_arlock),
         .m_axi_arprot(s_axi_mem_arprot),
         .m_axi_arqos(m_axi_arqos),
         .m_axi_arready(s_axi_mem_arready),
-        .m_axi_arsize(s_axi_mem_arsize),
-        .m_axi_arvalid(s_axi_mem_arvalid),
+        .m_axi_arsize(s_axi_mem_jtag_arsize),
+        .m_axi_arvalid(s_axi_mem_jtag_arvalid),
         .m_axi_awaddr(m_axi_awaddr),
         .m_axi_awburst(s_axi_mem_awburst),
         .m_axi_awcache(m_axi_awcache),
@@ -568,7 +576,7 @@ module top (
         .m_axi_rdata(s_axi_mem_rdata),
         .m_axi_rid(s_axi_mem_rid),
         .m_axi_rlast(s_axi_mem_rlast),
-        .m_axi_rready(s_axi_mem_rready),
+        .m_axi_rready(s_axi_mem_jtag_rready),
         .m_axi_rresp(s_axi_mem_rresp),
         .m_axi_rvalid(s_axi_mem_rvalid),
         .m_axi_wdata(m_axi_wdata),
@@ -576,7 +584,7 @@ module top (
         .m_axi_wready(s_axi_mem_wready),
         .m_axi_wstrb(s_axi_mem_wstrb),
         .m_axi_wvalid(s_axi_mem_wvalid)
-  );
+  );*/
 
   // PS7
   wire [14:0]DDR_Addr;
@@ -587,6 +595,7 @@ module top (
   wire DDR_Clk;
   wire DDR_Clk_n;
   wire FCLK_CLK0;
+  wire FCLK_RST;
   wire [3:0]DDR_DM;
   wire [31:0]DDR_DQ;
   wire [3:0]DDR_DQS;
@@ -606,6 +615,19 @@ module top (
   wire PS_CLK;
   wire PS_PORB;
   wire PS_SRSTB;
+  wire [31:0]s_axi_reg_pc_araddr;
+  wire [2:0]m_axi_pc_awprot;
+  wire [2:0]m_axi_pc_arprot;
+  wire [3:0]m_axi_pc_awqos;
+  wire [3:0]m_axi_pc_arqos;
+  wire [1:0]s_axi_mem_pc_arburst;
+  wire [7:0]s_axi_mem_pc_arlen;
+  wire [2:0]s_axi_mem_pc_arsize;
+  wire s_axi_mem_pc_arvalid;
+  wire s_axi_mem_pc_rready;
+  wire s_axi_mem_pc_arready;
+  wire [3:0]s_axi_mem_pc_arcache;
+
 
   // Potential TOOD Hook up DMA to DMA controller IP
   wire [1:0]DMA0_DATYPE;
@@ -700,28 +722,28 @@ module top (
         .DMA0_DRLAST(DMA0_DRLAST),
         .DMA0_DRVALID(DMA0_DRVALID),
         .FCLK_CLK0(FCLK_CLK0),
-        .FCLK_RESET0_N(rst),
+        .FCLK_RESET0_N(FCLK_RST),
         .MIO(MIO),
         .M_AXI_GP0_ACLK(clk),
-        .M_AXI_GP0_ARADDR(s_axi_mem_araddr),
-        .M_AXI_GP0_ARBURST(s_axi_mem_arburst),
-        .M_AXI_GP0_ARCACHE(s_axi_mem_arcache),
+        .M_AXI_GP0_ARADDR(s_axi_mem_pc_araddr),
+        .M_AXI_GP0_ARBURST(s_axi_mem_pc_arburst),
+        .M_AXI_GP0_ARCACHE(s_axi_mem_pc_arcache),
         .M_AXI_GP0_ARID(s_axi_mem_arid),
-        .M_AXI_GP0_ARLEN(s_axi_mem_arlen),
+        .M_AXI_GP0_ARLEN(s_axi_mem_pc_arlen),
         .M_AXI_GP0_ARLOCK(m_axi_arlock),
-        .M_AXI_GP0_ARPROT(m_axi_awprot),
-        .M_AXI_GP0_ARQOS(m_axi_awqos),
-        .M_AXI_GP0_ARREADY(s_axi_mem_arready),
-        .M_AXI_GP0_ARSIZE(s_axi_mem_arsize),
-        .M_AXI_GP0_ARVALID(s_axi_mem_arvalid),
+        .M_AXI_GP0_ARPROT(m_axi_pc_arprot),
+        .M_AXI_GP0_ARQOS(m_axi_pc_arqos),
+        .M_AXI_GP0_ARREADY(s_axi_mem_pc_arready),
+        .M_AXI_GP0_ARSIZE(s_axi_mem_pc_arsize),
+        .M_AXI_GP0_ARVALID(s_axi_mem_pc_arvalid),
         .M_AXI_GP0_AWADDR(M_AXI_GPO_AWADDR),
         .M_AXI_GP0_AWBURST(s_axi_mem_awburst),
         .M_AXI_GP0_AWCACHE(s_axi_mem_awcache),
         .M_AXI_GP0_AWID(s_axi_mem_awid),
         .M_AXI_GP0_AWLEN(s_axi_mem_awlen),
         .M_AXI_GP0_AWLOCK(m_axi_awlock),
-        .M_AXI_GP0_AWPROT(m_axi_awprot),
-        .M_AXI_GP0_AWQOS(m_axi_awqos),
+        .M_AXI_GP0_AWPROT(m_axi_pc_awprot),
+        .M_AXI_GP0_AWQOS(m_axi_pc_awqos),
         .M_AXI_GP0_AWREADY(s_axi_mem_awready),
         .M_AXI_GP0_AWSIZE(s_axi_mem_awsize),
         .M_AXI_GP0_AWVALID(s_axi_mem_awvalid),
@@ -732,7 +754,7 @@ module top (
         .M_AXI_GP0_RDATA(s_axi_mem_rdata),
         .M_AXI_GP0_RID(s_axi_mem_rid),
         .M_AXI_GP0_RLAST(s_axi_mem_rlast),
-        .M_AXI_GP0_RREADY(s_axi_mem_rready),
+        .M_AXI_GP0_RREADY(s_axi_mem_pc_rready),
         .M_AXI_GP0_RRESP(s_axi_mem_rresp),
         .M_AXI_GP0_RVALID(s_axi_mem_rvalid),
         .M_AXI_GP0_WDATA(M_AXI_GP0_WDATA),
@@ -744,7 +766,7 @@ module top (
         .PS_CLK(PS_CLK),
         .PS_PORB(PS_PORB),
         .PS_SRSTB(PS_SRSTB)
-  );*/
+  );
 
   // Instantiate modules
   ADD #(DATAWIDTH) add_1 (
