@@ -512,98 +512,13 @@ module top (
         .s_rp_sub_TVALID(s_rp_sub_TVALID)
   );
 
-  // AXI To JTAG
-  /*wire [31:0]m_axi_araddr;
-  wire [1:0]m_axi_arburst;
-  wire [3:0]m_axi_arcache;
-  wire [0:0]m_axi_arid;
-  wire [7:0]m_axi_arlen;
-  wire m_axi_arlock;
-  wire [2:0]m_axi_arprot;
-  wire [3:0]m_axi_arqos;
-  wire m_axi_arready;
-  wire [2:0]m_axi_arsize;
-  wire m_axi_arvalid;
-  wire [31:0]m_axi_awaddr;
-  wire [1:0]m_axi_awburst;
-  wire [3:0]m_axi_awcache;
-  wire [0:0]m_axi_awid;
-  wire [7:0]m_axi_awlen;
-  wire m_axi_awlock;
-  wire [2:0]m_axi_awprot;
-  wire [3:0]m_axi_awqos;
-  wire m_axi_awready;
-  wire [2:0]m_axi_awsize;
-  wire m_axi_awvalid;
-  wire [0:0]m_axi_bid;
-  wire m_axi_bready;
-  wire [1:0]m_axi_bresp;
-  wire m_axi_bvalid;
-  wire [31:0]m_axi_rdata;
-  wire [0:0]m_axi_rid;
-  wire m_axi_rlast;
-  wire m_axi_rready;
-  wire [1:0]m_axi_rresp;
-  wire m_axi_rvalid;
-  wire [31:0]m_axi_wdata;
-  wire m_axi_wlast;
-  wire m_axi_wready;
-  wire [3:0]m_axi_wstrb;
-  wire m_axi_wvalid;
-
-
-  jtag_axi_ctrl jtag_axi_ctrl_0 (
-        .aclk(clk),
-        .aresetn(rst),
-        .m_axi_araddr(s_axi_reg_araddr),
-        .m_axi_arburst(m_axi_arburst),
-        .m_axi_arcache(m_axi_arcache),
-        .m_axi_arid(m_axi_arid),
-        .m_axi_arlen(m_axi_arlen),
-        .m_axi_arlock(m_axi_arlock),
-        .m_axi_arprot(m_axi_arprot),
-        .m_axi_arqos(m_axi_arqos),
-        .m_axi_arready(s_axi_reg_arready),
-        .m_axi_arsize(m_axi_arsize),
-        .m_axi_arvalid(s_axi_reg_arvalid),
-        .m_axi_awaddr(s_axi_reg_awaddr),
-        .m_axi_awburst(m_axi_awburst),
-        .m_axi_awcache(m_axi_awcache),
-        .m_axi_awid(m_axi_awid),
-        .m_axi_awlen(m_axi_awlen),
-        .m_axi_awlock(m_axi_awlock),
-        .m_axi_awprot(m_axi_awprot),
-        .m_axi_awqos(m_axi_awqos),
-        .m_axi_awready(s_axi_reg_awready),
-        .m_axi_awsize(m_axi_awsize),
-        .m_axi_awvalid(s_axi_reg_awvalid),
-        .m_axi_bid(m_axi_bid),
-        .m_axi_bready(s_axi_reg_bready),
-        .m_axi_bresp(s_axi_reg_bresp),
-        .m_axi_bvalid(s_axi_reg_bvalid),
-        .m_axi_rdata(s_axi_reg_rdata),
-        .m_axi_rid(m_axi_rid),
-        .m_axi_rlast(m_axi_rlast),
-        .m_axi_rready(s_axi_reg_rready),
-        .m_axi_rresp(s_axi_reg_rresp),
-        .m_axi_rvalid(s_axi_reg_rvalid),
-        .m_axi_wdata(s_axi_reg_wdata),
-        .m_axi_wlast(m_axi_wlast),
-        .m_axi_wready(s_axi_reg_wready),
-        .m_axi_wstrb(m_axi_wstrb),
-        .m_axi_wvalid(s_axi_reg_wvalid)
-  );
-
-  // PS7
-  wire [14:0]DDR_Addr;
+    wire [14:0]DDR_Addr;
   wire [2:0]DDR_BankAddr;
   wire DDR_CAS_n;
   wire DDR_CKE;
   wire DDR_CS_n;
   wire DDR_Clk;
   wire DDR_Clk_n;
-  wire FCLK_CLK0;
-  wire FCLK_RST;
   wire [3:0]DDR_DM;
   wire [31:0]DDR_DQ;
   wire [3:0]DDR_DQS;
@@ -614,109 +529,132 @@ module top (
   wire DDR_VRN;
   wire DDR_VRP;
   wire DDR_WEB;
-  wire FCLK_CLK0;
-  wire FCLK_RESET0_N;
+  wire DMA0_ACLK;
+  wire DMA0_DAREADY;
+  wire [1:0]DMA0_DATYPE;
+  wire DMA0_DAVALID;
+  wire DMA0_DRLAST;
+  wire DMA0_DRREADY;
+  wire [1:0]DMA0_DRTYPE;
+  wire DMA0_DRVALID;
   wire [53:0]MIO;
+  wire M_AXI_GP0_ACLK;
+  wire [31:0]M_AXI_GP0_ARADDR;
+  wire [1:0]M_AXI_GP0_ARBURST;
+  wire [3:0]M_AXI_GP0_ARCACHE;
+  wire [11:0]M_AXI_GP0_ARID;
+  wire [3:0]M_AXI_GP0_ARLEN;
+  wire [1:0]M_AXI_GP0_ARLOCK;
+  wire [2:0]M_AXI_GP0_ARPROT;
+  wire [3:0]M_AXI_GP0_ARQOS;
+  wire M_AXI_GP0_ARREADY;
+  wire [2:0]M_AXI_GP0_ARSIZE;
+  wire M_AXI_GP0_ARVALID;
+  wire [31:0]M_AXI_GP0_AWADDR;
+  wire [1:0]M_AXI_GP0_AWBURST;
+  wire [3:0]M_AXI_GP0_AWCACHE;
+  wire [11:0]M_AXI_GP0_AWID;
+  wire [3:0]M_AXI_GP0_AWLEN;
+  wire [1:0]M_AXI_GP0_AWLOCK;
+  wire [2:0]M_AXI_GP0_AWPROT;
+  wire [3:0]M_AXI_GP0_AWQOS;
+  wire M_AXI_GP0_AWREADY;
+  wire [2:0]M_AXI_GP0_AWSIZE;
+  wire M_AXI_GP0_AWVALID;
+  wire [11:0]M_AXI_GP0_BID;
+  wire M_AXI_GP0_BREADY;
+  wire [1:0]M_AXI_GP0_BRESP;
+  wire M_AXI_GP0_BVALID;
+  wire [31:0]M_AXI_GP0_RDATA;
+  wire [11:0]M_AXI_GP0_RID;
+  wire M_AXI_GP0_RLAST;
+  wire M_AXI_GP0_RREADY;
+  wire [1:0]M_AXI_GP0_RRESP;
+  wire M_AXI_GP0_RVALID;
+  wire [31:0]M_AXI_GP0_WDATA;
   wire [11:0]M_AXI_GP0_WID;
-  wire [31:0]M_AXI_GPO_AWADDR;
-  wire [31:0]M_AXI_GPO_WDATA;
+  wire M_AXI_GP0_WLAST;
+  wire M_AXI_GP0_WREADY;
+  wire [3:0]M_AXI_GP0_WSTRB;
+  wire M_AXI_GP0_WVALID;
   wire PS_CLK;
   wire PS_PORB;
   wire PS_SRSTB;
-  wire [31:0]s_axi_reg_pc_araddr;
-  wire [2:0]m_axi_pc_awprot;
-  wire [2:0]m_axi_pc_arprot;
-  wire [3:0]m_axi_pc_awqos;
-  wire [3:0]m_axi_pc_arqos;
-  wire [1:0]s_axi_mem_pc_arburst;
-  wire [7:0]s_axi_mem_pc_arlen;
-  wire [2:0]s_axi_mem_pc_arsize;
-  wire s_axi_mem_pc_arvalid;
-  wire s_axi_mem_pc_rready;
-  wire s_axi_mem_pc_arready;
-  wire [3:0]s_axi_mem_pc_arcache;
-
-
-  // Potential TOOD Hook up DMA to DMA controller IP
-  wire [1:0]DMA0_DATYPE;
-  wire DMA0_DAVALID;
-  wire DMA0_DRREADY;
-  wire DMA0_ACLK;
-  wire DMA0_DAREADY;
-  wire DMA0_DRLAST;
-  wire DMA0_DRVALID;
+  wire FCLK_CLK0;
+  wire FCLK_RESET0_N;
 
   processing_system7_0 processing_system7_0_1 (
-        .DDR_Addr(DDR_Addr),
-        .DDR_BankAddr(DDR_BankAddr),
-        .DDR_CAS_n(DDR_CAS_n),
-        .DDR_CKE(DDR_CKE),
-        .DDR_CS_n(DDR_CS_n),
-        .DDR_Clk(DDR_Clk),
-        .DDR_Clk_n(DDR_Clk_n),
-        .DDR_DM(DDR_DM),
-        .DDR_DQ(DDR_DQ),
-        .DDR_DQS(DDR_DQS),
-        .DDR_DQS_n(DDR_DQS_n),
-        .DDR_DRSTB(DDR_DRSTB),
-        .DDR_ODT(DDR_ODT),
-        .DDR_RAS_n(DDR_RAS_n),
-        .DDR_VRN(DDR_VRN),
-        .DDR_VRP(DDR_VRP),
-        .DDR_WEB(DDR_WEB),
-        .DMA0_DATYPE(DMA0_DATYPE),
-        .DMA0_DAVALID(DMA0_DAVALID),
-        .DMA0_DRREADY(DMA0_DRREADY),
-        .DMA0_ACLK(DMA0_ACLK),
-        .DMA0_DAREADY(DMA0_DAREADY),
-        .DMA0_DRLAST(DMA0_DRLAST),
-        .DMA0_DRVALID(DMA0_DRVALID),
-        .FCLK_CLK0(FCLK_CLK0),
-        .FCLK_RESET0_N(FCLK_RST),
-        .MIO(MIO),
-        .M_AXI_GP0_ACLK(clk),
-        .M_AXI_GP0_ARADDR(s_axi_mem_pc_araddr),
-        .M_AXI_GP0_ARBURST(s_axi_mem_pc_arburst),
-        .M_AXI_GP0_ARCACHE(s_axi_mem_pc_arcache),
-        .M_AXI_GP0_ARID(s_axi_mem_arid),
-        .M_AXI_GP0_ARLEN(s_axi_mem_pc_arlen),
-        .M_AXI_GP0_ARLOCK(m_axi_arlock),
-        .M_AXI_GP0_ARPROT(m_axi_pc_arprot),
-        .M_AXI_GP0_ARQOS(m_axi_pc_arqos),
-        .M_AXI_GP0_ARREADY(s_axi_mem_pc_arready),
-        .M_AXI_GP0_ARSIZE(s_axi_mem_pc_arsize),
-        .M_AXI_GP0_ARVALID(s_axi_mem_pc_arvalid),
-        .M_AXI_GP0_AWADDR(M_AXI_GPO_AWADDR),
-        .M_AXI_GP0_AWBURST(s_axi_mem_awburst),
-        .M_AXI_GP0_AWCACHE(s_axi_mem_awcache),
-        .M_AXI_GP0_AWID(s_axi_mem_awid),
-        .M_AXI_GP0_AWLEN(s_axi_mem_awlen),
-        .M_AXI_GP0_AWLOCK(m_axi_awlock),
-        .M_AXI_GP0_AWPROT(m_axi_pc_awprot),
-        .M_AXI_GP0_AWQOS(m_axi_pc_awqos),
-        .M_AXI_GP0_AWREADY(s_axi_mem_awready),
-        .M_AXI_GP0_AWSIZE(s_axi_mem_awsize),
-        .M_AXI_GP0_AWVALID(s_axi_mem_awvalid),
-        .M_AXI_GP0_BID(s_axi_mem_bid),
-        .M_AXI_GP0_BREADY(s_axi_mem_bready),
-        .M_AXI_GP0_BRESP(s_axi_mem_bresp),
-        .M_AXI_GP0_BVALID(s_axi_mem_bvalid),
-        .M_AXI_GP0_RDATA(s_axi_mem_rdata),
-        .M_AXI_GP0_RID(s_axi_mem_rid),
-        .M_AXI_GP0_RLAST(s_axi_mem_rlast),
-        .M_AXI_GP0_RREADY(s_axi_mem_pc_rready),
-        .M_AXI_GP0_RRESP(s_axi_mem_rresp),
-        .M_AXI_GP0_RVALID(s_axi_mem_rvalid),
-        .M_AXI_GP0_WDATA(M_AXI_GP0_WDATA),
-        .M_AXI_GP0_WID(M_AXI_GP0_WID),
-        .M_AXI_GP0_WLAST(s_axi_mem_wlast),
-        .M_AXI_GP0_WREADY(s_axi_mem_wready),
-        .M_AXI_GP0_WSTRB(s_axi_mem_wstrb),
-        .M_AXI_GP0_WVALID(s_axi_memw_wvalid),
-        .PS_CLK(PS_CLK),
-        .PS_PORB(PS_PORB),
-        .PS_SRSTB(PS_SRSTB)
-  );*/
+    .DDR_Addr(DDR_Addr),
+    .DDR_BankAddr(DDR_BankAddr),
+    .DDR_CAS_n(DDR_CAS_n),
+    .DDR_CKE(DDR_CKE),
+    .DDR_CS_n(DDR_CS_n),
+    .DDR_Clk(DDR_Clk),
+    .DDR_Clk_n(DDR_Clk_n),
+    .DDR_DM(DDR_DM),
+    .DDR_DQ(DDR_DQ),
+    .DDR_DQS(DDR_DQS),
+    .DDR_DQS_n(DDR_DQS_n),
+    .DDR_DRSTB(DDR_DRSTB),
+    .DDR_ODT(DDR_ODT),
+    .DDR_RAS_n(DDR_RAS_n),
+    .DDR_VRN(DDR_VRN),
+    .DDR_VRP(DDR_VRP),
+    .DDR_WEB(DDR_WEB),
+    .DMA0_ACLK(DMA0_ACLK),
+    .DMA0_DAREADY(DMA0_DAREADY),
+    .DMA0_DATYPE(DMA0_DATYPE),
+    .DMA0_DAVALID(DMA0_DAVALID),
+    .DMA0_DRLAST(DMA0_DRLAST),
+    .DMA0_DRREADY(DMA0_DRREADY),
+    .DMA0_DRTYPE(DMA0_DRTYPE),
+    .DMA0_DRVALID(DMA0_DRVALID),
+    .FCLK_CLK0(FCLK_CLK0),
+    .FCLK_RESET0_N(FCLK_RESET0_N),
+    .MIO(MIO),
+    .M_AXI_GP0_ACLK(M_AXI_GP0_ACLK),
+    .M_AXI_GP0_ARADDR(M_AXI_GP0_ARADDR),
+    .M_AXI_GP0_ARBURST(M_AXI_GP0_ARBURST),
+    .M_AXI_GP0_ARCACHE(M_AXI_GP0_ARCACHE),
+    .M_AXI_GP0_ARID(M_AXI_GP0_ARID),
+    .M_AXI_GP0_ARLEN(M_AXI_GP0_ARLEN),
+    .M_AXI_GP0_ARLOCK(M_AXI_GP0_ARLOCK),
+    .M_AXI_GP0_ARPROT(M_AXI_GP0_ARPROT),
+    .M_AXI_GP0_ARQOS(M_AXI_GP0_ARQOS),
+    .M_AXI_GP0_ARREADY(M_AXI_GP0_ARREADY),
+    .M_AXI_GP0_ARSIZE(M_AXI_GP0_ARSIZE),
+    .M_AXI_GP0_ARVALID(M_AXI_GP0_ARVALID),
+    .M_AXI_GP0_AWADDR(M_AXI_GP0_AWADDR),
+    .M_AXI_GP0_AWBURST(M_AXI_GP0_AWBURST),
+    .M_AXI_GP0_AWCACHE(M_AXI_GP0_AWCACHE),
+    .M_AXI_GP0_AWID(M_AXI_GP0_AWID),
+    .M_AXI_GP0_AWLEN(M_AXI_GP0_AWLEN),
+    .M_AXI_GP0_AWLOCK(M_AXI_GP0_AWLOCK),
+    .M_AXI_GP0_AWPROT(M_AXI_GP0_AWPROT),
+    .M_AXI_GP0_AWQOS(M_AXI_GP0_AWQOS),
+    .M_AXI_GP0_AWREADY(M_AXI_GP0_AWREADY),
+    .M_AXI_GP0_AWSIZE(M_AXI_GP0_AWSIZE),
+    .M_AXI_GP0_AWVALID(M_AXI_GP0_AWVALID),
+    .M_AXI_GP0_BID(M_AXI_GP0_BID),
+    .M_AXI_GP0_BREADY(M_AXI_GP0_BREADY),
+    .M_AXI_GP0_BRESP(M_AXI_GP0_BRESP),
+    .M_AXI_GP0_BVALID(M_AXI_GP0_BVALID),
+    .M_AXI_GP0_RDATA(M_AXI_GP0_RDATA),
+    .M_AXI_GP0_RID(M_AXI_GP0_RID),
+    .M_AXI_GP0_RLAST(M_AXI_GP0_RLAST),
+    .M_AXI_GP0_RREADY(M_AXI_GP0_RREADY),
+    .M_AXI_GP0_RRESP(M_AXI_GP0_RRESP),
+    .M_AXI_GP0_RVALID(M_AXI_GP0_RVALID),
+    .M_AXI_GP0_WDATA(M_AXI_GP0_WDATA),
+    .M_AXI_GP0_WID(M_AXI_GP0_WID),
+    .M_AXI_GP0_WLAST(M_AXI_GP0_WLAST),
+    .M_AXI_GP0_WREADY(M_AXI_GP0_WREADY),
+    .M_AXI_GP0_WSTRB(M_AXI_GP0_WSTRB),
+    .M_AXI_GP0_WVALID(M_AXI_GP0_WVALID),
+    .PS_CLK(PS_CLK),
+    .PS_PORB(PS_PORB),
+    .PS_SRSTB(PS_SRSTB)
+  );
   
   // Declare wires for modules
   wire [DATAWIDTH-1:0] add_sum, div_quot, inc_d, dec_d, mod_rem;
