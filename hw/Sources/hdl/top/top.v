@@ -31,11 +31,14 @@ module top (
   // Initialize IP inputs and outputs
   input [STATICWIDTH-1:0] icap_i;
   output [STATICWIDTH-1:0] icap_o;
+
+  // Reset wires
+  reg icap_reset_int;
   input icap_reset;
 
   // Setup static logic
   // PRC
-  wire cap_gnt;
+  reg cap_gnt;
   wire cap_rel;
   wire cap_req;
   wire icap_clk;
@@ -91,7 +94,7 @@ module top (
     .icap_i(icap_i),
     .icap_o(icap_o),
     .icap_rdwrb(icap_rdwrb),
-    .icap_reset(icap_reset),
+    .icap_reset(icap_reset_int),
     .m_axi_mem_araddr(s_axi_mem_araddr),
     .m_axi_mem_arburst(s_axi_mem_arburst),
     .m_axi_mem_arcache(s_axi_mem_arcache),
@@ -149,9 +152,6 @@ module top (
   wire mem_rnw;
   wire mem_rpn;
   wire mem_wen;
-  (* MAX_FANOUT = "10000" *) (* RTL_MAX_FANOUT = "found" *) (* sigis = "Clk" *) wire rdclk;
-  (* MAX_FANOUT = "10000" *) (* RTL_MAX_FANOUT = "found" *) (* sigis = "Clk" *) wire s_axi_aclk;
-  (* MAX_FANOUT = "10000" *) (* RTL_MAX_FANOUT = "found" *) (* sigis = "Rst" *) wire s_axi_aresetn;
   wire [3:0]s_axi_mem_arid;
   wire [31:0]s_axi_mem_awaddr;
   wire [1:0]s_axi_mem_awburst;
@@ -734,6 +734,17 @@ module top (
     .b     (b),
     .diff  (sub_diff)
   );
+
+  always @(PS_SRSTB, PS_PORB, icap_reset) begin
+    if (PS_SRSTB == 0'b1) begin
+      cap_gnt <= 0'b1;
+    end else if (PS_PORB == 0'b1 || icap_reset == 0'b1) begin
+      icap_reset_int <= 0'b1;
+    end else begin
+      cap_gnt <= 0'b0;
+      icap_reset_int <= 0'b0;
+    end
+  end 
 
   always @(a, b, op_sel) begin
     case (op_sel)
