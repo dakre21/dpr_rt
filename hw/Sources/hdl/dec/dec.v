@@ -22,7 +22,7 @@
 module DEC(a, d);
     // Parameter DATAWIDTH that describes the number of bits for the input a
     // and the output q
-    parameter DATAWIDTH = 2;
+    parameter DATAWIDTH = 32;
     
     
     // Input and output declarations for the register module

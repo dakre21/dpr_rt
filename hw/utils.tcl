@@ -1,7 +1,6 @@
 # Author: David Akre
 # Description: Utilizty script which helps with the assemble and bitstream creation flow
 
-set rt     0
 set device "xc7z020"
 set part   "clg400"
 set speed  "-1"
@@ -60,9 +59,24 @@ proc set_all_cells_reconfig { } {
   set_property HD.RECONFIGURABLE 1 [get_cells sub_1]
 }
 
+proc set_absorbing_cells_reconfig { } {
+  # Set each module as an RM
+  set_property HD.RECONFIGURABLE 1 [get_cells add_1]
+  set_property HD.RECONFIGURABLE 1 [get_cells comp_1]
+  set_property HD.RECONFIGURABLE 1 [get_cells div_1]
+  set_property HD.RECONFIGURABLE 1 [get_cells mux_1]
+  set_property HD.RECONFIGURABLE 1 [get_cells reg_1]
+  set_property HD.RECONFIGURABLE 1 [get_cells shl_1]
+}
+
 proc link_full_design { part } {
   # Link the design together
   link_design -mode default -reconfig_partitions { add_1 comp_1 dec_1 div_1 inc_1 mod_1 mul_1 mux_1 reg_1 shl_1 shr_1 sub_1 } -part ${part} -top top
+}
+
+proc link_partial_design { part } {
+  # Link the design together
+  link_design -mode default -reconfig_partitions { add_1 comp_1 div_1 mux_1 reg_1 shl_1 } -part ${part} -top top
 }
 
 proc run_flow { } {

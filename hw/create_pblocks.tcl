@@ -11,7 +11,6 @@ if { $rt == 0 } {
   set timing ./Implement/top_timing_summary_full_rt.rpt
   set utilization ./Implement/top_utilization_full_rt.rpt
   set checkpoint ./Implement/top_route_design_full_rt.dcp
-
 }
 
 # Create Pblocks
@@ -78,30 +77,73 @@ if { $rt == 0 } {
   endgroup
 
 } else {
-
+  startgroup
+  create_pblock pblock_add_1
+  resize_pblock pblock_add_1 -add {SLICE_X92Y0:SLICE_X113Y49 DSP48_X3Y0:DSP48_X4Y19 RAMB18_X5Y0:RAMB18_X5Y19 RAMB36_X5Y0:RAMB36_X5Y9}
+  add_cells_to_pblock pblock_add_1 [get_cells [list add_1]] -clear_locs
+  endgroup
+  add_cells_to_pblock pblock_add_1 [get_cells [list dec_1]] -clear_locs
+  add_cells_to_pblock pblock_add_1 [get_cells [list inc_1]] -clear_locs
+  add_cells_to_pblock pblock_add_1 [get_cells [list sub_1]] -clear_locs
+  startgroup
+  create_pblock pblock_comp_1
+  resize_pblock pblock_comp_1 -add SLICE_X36Y101:SLICE_X49Y149
+  add_cells_to_pblock pblock_comp_1 [get_cells [list comp_1]] -clear_locs
+  endgroup
+  startgroup
+  create_pblock pblock_reg_1
+  resize_pblock pblock_reg_1 -add {SLICE_X26Y51:SLICE_X35Y99 RAMB18_X2Y22:RAMB18_X2Y39 RAMB36_X2Y11:RAMB36_X2Y19}
+  add_cells_to_pblock pblock_reg_1 [get_cells [list reg_1]] -clear_locs
+  endgroup
+  startgroup
+  create_pblock pblock_shl_1
+  resize_pblock pblock_shl_1 -add {SLICE_X80Y103:SLICE_X95Y148 DSP48_X3Y42:DSP48_X3Y57 RAMB18_X4Y42:RAMB18_X4Y57 RAMB36_X4Y21:RAMB36_X4Y28}
+  add_cells_to_pblock pblock_shl_1 [get_cells [list shl_1]] -clear_locs
+  endgroup
+  add_cells_to_pblock pblock_shl_1 [get_cells [list shr_1]] -clear_locs
+  startgroup
+  create_pblock pblock_div_1
+  resize_pblock pblock_div_1 -add {SLICE_X0Y0:SLICE_X25Y49 DSP48_X0Y0:DSP48_X1Y19 RAMB18_X0Y0:RAMB18_X1Y19 RAMB36_X0Y0:RAMB36_X1Y9}
+  add_cells_to_pblock pblock_div_1 [get_cells [list div_1]] -clear_locs
+  endgroup
+  add_cells_to_pblock pblock_div_1 [get_cells [list mod_1]] -clear_locs
+  add_cells_to_pblock pblock_div_1 [get_cells [list mul_1]] -clear_locs
+  startgroup
+  create_pblock pblock_mux_1
+  resize_pblock pblock_mux_1 -add {SLICE_X50Y0:SLICE_X75Y50 RAMB18_X3Y0:RAMB18_X3Y19 RAMB36_X3Y0:RAMB36_X3Y9}
+  add_cells_to_pblock pblock_mux_1 [get_cells [list mux_1]] -clear_locs
+  endgroup
 }
 
 # Set reset after reconfig and snapping mode for all pblocks
+if { $rt == 0 } {
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_dec_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_dec_1]
+
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_inc_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_inc_1]
+
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mod_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_mod_1]
+
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mul_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_mul_1]
+
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_shr_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_shr_1]
+
+  set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_sub_1] 
+  set_property SNAPPING_MODE ON [get_pblocks pblock_sub_1]
+}
+
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_add_1] 
 set_property SNAPPING_MODE ON [get_pblocks pblock_add_1]
 
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_comp_1] 
 set_property SNAPPING_MODE ON [get_pblocks pblock_comp_1]
 
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_dec_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_dec_1]
-
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_div_1] 
 set_property SNAPPING_MODE ON [get_pblocks pblock_div_1]
-
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_inc_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_inc_1]
-
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mod_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_mod_1]
-
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mul_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_mul_1]
 
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mux_1] 
 set_property SNAPPING_MODE ON [get_pblocks pblock_mux_1]
@@ -111,12 +153,6 @@ set_property SNAPPING_MODE ON [get_pblocks pblock_reg_1]
 
 set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_shl_1] 
 set_property SNAPPING_MODE ON [get_pblocks pblock_shl_1]
-
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_shr_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_shr_1]
-
-set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_sub_1] 
-set_property SNAPPING_MODE ON [get_pblocks pblock_sub_1]
 
 # Run design rule check
 report_drc -name drc_1 -ruledecks {opt_checks router_checks placer_checks}
