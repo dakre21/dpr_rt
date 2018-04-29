@@ -22,7 +22,7 @@
 module MOD(a, b, rem);
     // Parameter DATAWIDTH that describes the number of bits for the input a
     // and the output q
-    parameter DATAWIDTH = 32;
+    parameter DATAWIDTH = 16;
     
     // Input and output declarations for the register module
     input [DATAWIDTH-1:0] a, b;

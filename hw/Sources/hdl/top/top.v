@@ -20,7 +20,7 @@ module top (
 );
   // Initialize wires and assign them to inputs for
   // custom static logic and RMs
-  parameter DATAWIDTH = 32;
+  parameter DATAWIDTH = 16;
   parameter STATICWIDTH = 32;
   input clk, rst, mux_sel;
   input [4:0] op_sel;
@@ -711,7 +711,7 @@ module top (
   );
 
   REG #(DATAWIDTH) reg_1 (
-    .d   (d),
+    .a   (a),
     .q   (reg_q),
     .Clk (clk),
     .Rst (rst)
@@ -735,45 +735,41 @@ module top (
     .diff  (sub_diff)
   );
 
-  always @(PS_SRSTB, PS_PORB, icap_reset) begin
-    if (PS_SRSTB == 0'b1) begin
-      cap_gnt <= 0'b1;
-    end else if (PS_PORB == 0'b1 || icap_reset == 0'b1) begin
+  always @(a, b, op_sel, icap_reset) begin
+    if (icap_reset == 0'b1) begin
       icap_reset_int <= 0'b1;
+      cout <= 0'b0;
     end else begin
       cap_gnt <= 0'b0;
       icap_reset_int <= 0'b0;
-    end
-  end 
+      case (op_sel)
+        0: out <= add_sum;
+        1: out <= dec_d;
+        2: out <= div_quot;
+        3: out <= inc_d;
+        4: out <= mod_rem;
+        5: out <= mul_prod;
+        6: out <= mux_d;
+        7: out <= reg_q;
+        8: out <= shl_d;
+        9: out <= shr_d;
+        10: out <= sub_diff;
 
-  always @(a, b, op_sel) begin
-    case (op_sel)
-      0: out <= add_sum;
-      1: out <= dec_d;
-      2: out <= div_quot;
-      3: out <= inc_d;
-      4: out <= mod_rem;
-      5: out <= mul_prod;
-      6: out <= mux_d;
-      7: out <= reg_q;
-      8: out <= shl_d;
-      9: out <= shr_d;
-      10: out <= sub_diff;
-
-      default: out <= 0;
-    endcase
+        default: out <= 0;
+      endcase
+    end 
   end
     
 endmodule
 
 // Define blackbox modules here
-module ADD #(parameter DATAWIDTH = 32) (
+module ADD #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] sum
 ); endmodule
 
-module COMP #(parameter DATAWIDTH = 32) (
+module COMP #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output gt,
@@ -781,61 +777,61 @@ module COMP #(parameter DATAWIDTH = 32) (
   output eq
 ); endmodule
 
-module DEC #(parameter DATAWIDTH = 32) (
+module DEC #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module DIV #(parameter DATAWIDTH = 32) (
+module DIV #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] quot
 ); endmodule
 
-module INC #(parameter DATAWIDTH = 32) (
+module INC #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module MOD #(parameter DATAWIDTH = 32) (
+module MOD #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] rem
 ); endmodule
 
-module MUL #(parameter DATAWIDTH = 32) (
+module MUL #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] prod
 ); endmodule
 
-module MUX2x1 #(parameter DATAWIDTH = 32) (
+module MUX2x1 #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] d,
   input sel
 ); endmodule
 
-module REG #(parameter DATAWIDTH = 32) (
+module REG #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] d,
   output [DATAWIDTH-1:0] q,
   input Clk,
   input Rst
 ); endmodule
 
-module SHL #(parameter DATAWIDTH = 32) (
+module SHL #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] sh_amt,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module SHR #(parameter DATAWIDTH = 32) (
+module SHR #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] sh_amt,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module SUB #(parameter DATAWIDTH = 32) (
+module SUB #(parameter DATAWIDTH = 2) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] diff

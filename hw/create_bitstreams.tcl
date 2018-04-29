@@ -1,16 +1,18 @@
 # Author: David Akre
 # Description: TCL script to help with writing static and partial bitstreams
 
-if { $rt == 0 } {
+if { ${rt} == 0 } {
   set timing ./Implement/top_timing_empty_nrt.rpt
   set utilization ./Implement/top_utilization_empty_nrt.rpt
   set checkpoint ./Implement/top_route_design_full_nrt.dcp
   set static_checkpoint ./Checkpoint/static_route_design_nrt.dcp
+  set config config_full_nrt.bit
 } else {
   set timing ./Implement/top_timing_empty_rt.rpt
   set utilization ./Implement/top_utilization_empty_rt.rpt
   set checkpoint ./Implement/top_route_design_full_rt.dcp
   set static_checkpoint ./Checkpoint/static_route_design_rt.dcp
+  set config config_full_rt.bit
 }
 
 # Part 1 - Create static bitstream
@@ -37,7 +39,7 @@ close_project
 
 # Re-open project
 create_project -in_memory -part ${part}
-add_files ./Checkpoint/static_route_design_nrt.dcp
+add_files ${static_checkpoint}
 load_all_dcps
 link_full_design ${part}
 write_checkpoint -force ${checkpoint}
@@ -45,8 +47,7 @@ report_utilization -file ${utilization}
 report_timing_summary -file ${timing}
 
 # Verify routing is accurate
-# TODO Check this out
-#pr_verify $checkpoint_nrt $static_checkpoint_nrt
+#pr_verify $checkpoint $static_checkpoint
 close_project
 
 # Write bitstream now
@@ -54,4 +55,4 @@ open_checkpoint ${checkpoint}
 
 run_flow
 
-write_bitstream -force -file Bitstreams/config_full_nrt.bit
+write_bitstream -force -file Bitstreams/${config}

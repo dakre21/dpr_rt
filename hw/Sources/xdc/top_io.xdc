@@ -740,6 +740,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports [list icap_reset]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list mux_sel]]
 set_property IOSTANDARD LVCMOS33 [get_ports [list rst]]
 
+set_property IOSTANDARD LVCMOS33 [get_ports [list {a[15]} {a[14]} {a[13]} {a[12]} {a[11]} {a[10]} {a[9]} {a[8]} {a[7]} {a[6]} {a[5]} {a[4]} {a[3]} {a[2]} {a[1]} {a[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {b[15]} {b[14]} {b[13]} {b[12]} {b[11]} {b[10]} {b[9]} {b[8]} {b[7]} {b[6]} {b[5]} {b[4]} {b[3]} {b[2]} {b[1]} {b[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {out[15]} {out[14]} {out[13]} {out[12]} {out[11]} {out[10]} {out[9]} {out[8]} {out[7]} {out[6]} {out[5]} {out[4]} {out[3]} {out[2]} {out[1]} {out[0]}]]
+
+
 #set_property DONT_TOUCH true [get_cells prc_1/U0/i_vsm_vs_main/current_state[1]_i_16]
 #set_property DONT_TOUCH true [get_cells axi_em_ctrl_1/U0/EMC_CTRL_I/MEM_STATE_MACHINE_I/wlast_reg_i_3]
 #set_property DONT_TOUCH true [get_cells prc_1/U0/i_cp0/icap_o_preswap[24]_i_16]

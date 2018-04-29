@@ -10,7 +10,7 @@
 
 # Forward declarations
 # rt = 1 for Real Time 0 Non Real Time
-set rt     0   
+set rt     1
 
 source utils.tcl
 
@@ -74,12 +74,18 @@ set netlistDir "$srcDir/netlist"
 # NOTE: Top will contain the same connection properties with
 # real time and non real time benchmarking
 
+if { ${rt} == 0 } {
+  set top_dir "top"
+} else {
+  set top_dir "top_rt"
+}
+
 set top "top"
 set static "Static"
 add_module $static
 set_attribute module $static moduleName    $top
 set_attribute module $static top_level     1
-set_attribute module $static vlog          [list [glob $rtlDir/$top/*.v]]
+set_attribute module $static vlog          [list [glob $rtlDir/$top_dir/*.v]]
 set_attribute module $static ip            [list $ipDir/axi_em_ctrl/axi_em_ctrl.xci \
                                                  $ipDir/prc/prc.xci \
                                                  $ipDir/prd/prd.xci \
