@@ -1,7 +1,7 @@
 # Author: David Akre
 # Description: Helper script for PR assembly process
 
-set rt 1
+set rt 0
 source utils.tcl
 
 proc load_constraints { synth } {

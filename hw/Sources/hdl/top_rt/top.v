@@ -20,7 +20,7 @@ module top (
 );
   // Initialize wires and assign them to inputs for
   // custom static logic and RMs
-  parameter DATAWIDTH = 16;
+  parameter DATAWIDTH = 8;
   parameter STATICWIDTH = 32;
   input clk, rst, mux_sel;
   input [4:0] op_sel;
@@ -284,13 +284,13 @@ module top (
 endmodule
 
 // Define blackbox modules here
-module ADD #(parameter DATAWIDTH = 16) (
+module ADD #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] sum
 ); endmodule
 
-module COMP #(parameter DATAWIDTH = 16) (
+module COMP #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output gt,
@@ -298,61 +298,61 @@ module COMP #(parameter DATAWIDTH = 16) (
   output eq
 ); endmodule
 
-module DEC #(parameter DATAWIDTH = 16) (
+module DEC #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module DIV #(parameter DATAWIDTH = 16) (
+module DIV #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] quot
 ); endmodule
 
-module INC #(parameter DATAWIDTH = 16) (
+module INC #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module MOD #(parameter DATAWIDTH = 16) (
+module MOD #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] rem
 ); endmodule
 
-module MUL #(parameter DATAWIDTH = 16) (
+module MUL #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] prod
 ); endmodule
 
-module MUX2x1 #(parameter DATAWIDTH = 16) (
+module MUX2x1 #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] d,
   input sel
 ); endmodule
 
-module REG #(parameter DATAWIDTH = 16) (
+module REG #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] d,
   output [DATAWIDTH-1:0] q,
   input Clk,
   input Rst
 ); endmodule
 
-module SHL #(parameter DATAWIDTH = 16) (
+module SHL #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] sh_amt,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module SHR #(parameter DATAWIDTH = 16) (
+module SHR #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] sh_amt,
   output [DATAWIDTH-1:0] d
 ); endmodule
 
-module SUB #(parameter DATAWIDTH = 16) (
+module SUB #(parameter DATAWIDTH = 8) (
   input [DATAWIDTH-1:0] a,
   input [DATAWIDTH-1:0] b,
   output [DATAWIDTH-1:0] diff

@@ -10,7 +10,7 @@
 
 # Forward declarations
 # rt = 1 for Real Time 0 Non Real Time
-set rt 1
+set rt 0
 
 source utils.tcl
 
