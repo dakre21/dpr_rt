@@ -3,6 +3,7 @@ Author: David Akre
 Description: Helper python script to run benchmarks
 """
 
+import os
 import time
 import subprocess
 import glob
@@ -17,8 +18,9 @@ def prog(results, bit_files, latency):
   files     = []
   jitter    = []
   treconfig = []
-  iters     = 10
+  iters     = 1
 
+  
   for f in bit_files:
     files.append(f)
     tmp = []
@@ -35,11 +37,16 @@ def prog(results, bit_files, latency):
     treconfig.append(total/len(tmp))
     jitter.append(max(tmp) - min(tmp))
 
+  print files
+  print jitter
+  print treconfig
   
   # Save results to csv
-  # TODO FIX
-  df = pd.DataFrame([files, treconfig, jitter], columns=[["Bitstream"], \
-          ["Reconfiguration Time (us)"], ["Jitter (us)"]])
+  df = pd.DataFrame({
+      "Bitstream File" : files,
+      "Reconfiguration Time (us)" : treconfig,
+      "Jitter (us)" : jitter
+      })
   df.to_csv(results)
 
 
@@ -52,9 +59,29 @@ def main():
   subprocess.call("xsdb -eval 'connect; dow -data test 0x1000000'",shell=True)
   latency = time.time() - time_start
 
-  prog("results_%s.csv" % nrt8, glob.glob(nrt8), latency)
-  prog("results_%s.csv" % rt8, glob.glob(rt8), latency)
-  prog("results_%s.csv" % rt16, glob.glob(rt16), latency)
+  files = []
+  for f in os.listdir(nrt8):
+    if f.endswith(".bit"):
+      files.append(os.path.join(nrt8, f)) 
+
+
+  prog("results_%s.csv" % nrt8, files, latency)
+
+  files = []
+  for f in os.listdir(rt8):
+    if f.endswith(".bit"):
+      files.append(os.path.join(nrt8, f)) 
+
+
+  prog("results_%s.csv" % rt8, files, latency)
+
+  files = []
+  for f in os.listdir(rt16):
+    if f.endswith(".bit"):
+      files.append(os.path.join(nrt8, f)) 
+
+
+  prog("results_%s.csv" % rt16, files, latency)
 
   
 if __name__ == "__main__":
