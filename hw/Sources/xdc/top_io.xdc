@@ -26,13 +26,6 @@
 ############################################################################
 ############################################################################
 ############################################################################
-# Clock constraints                                                        #
-############################################################################
-current_instance design_1_i/processing_system7_0/inst
-create_clock -period 20.000 -name clk_fpga_0 [get_pins {PS7_i/FCLKCLK[0]}]
-set_input_jitter clk_fpga_0 0.600
-#The clocks are asynchronous, user should constrain them appropriately.#
-
 
 ############################################################################
 # I/O STANDARDS and Location Constraints                                   #

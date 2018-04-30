@@ -711,7 +711,7 @@ module top (
   );
 
   REG #(DATAWIDTH) reg_1 (
-    .a   (a),
+    .d   (d),
     .q   (reg_q),
     .Clk (clk),
     .Rst (rst)
@@ -738,7 +738,7 @@ module top (
   always @(a, b, op_sel, icap_reset) begin
     if (icap_reset == 0'b1) begin
       icap_reset_int <= 0'b1;
-      cout <= 0'b0;
+      out <= 0'b0;
     end else begin
       cap_gnt <= 0'b0;
       icap_reset_int <= 0'b0;

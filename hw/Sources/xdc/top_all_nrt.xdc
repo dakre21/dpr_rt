@@ -316,12 +316,6 @@ set_input_jitter clk_fpga_0 0.600
 ############################################################################
 ############################################################################
 ############################################################################
-# Clock constraints                                                        #
-############################################################################
-current_instance -quiet
-set_input_jitter clk_fpga_0 0.600
-#The clocks are asynchronous, user should constrain them appropriately.#
-
 
 ############################################################################
 # I/O STANDARDS and Location Constraints                                   #
@@ -388,20 +382,15 @@ set_input_jitter clk_fpga_0 0.600
 
 
 # Customization
+current_instance -quiet
 set_property IOSTANDARD LVCMOS33 [get_ports comp_eq]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_gt]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_lt]
-set_property IOSTANDARD LVCMOS33 [get_ports {out[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {out[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {op_sel[4]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {b[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {b[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {a[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {a[1]}]
 
 set_property IOSTANDARD LVCMOS33 [get_ports {icap_o[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {icap_o[1]}]
@@ -472,6 +461,56 @@ set_property IOSTANDARD LVCMOS33 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports icap_reset]
 set_property IOSTANDARD LVCMOS33 [get_ports mux_sel]
 set_property IOSTANDARD LVCMOS33 [get_ports rst]
+
+set_property IOSTANDARD LVCMOS33 [get_ports {a[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {a[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {b[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {out[15]}]
+
 
 #set_property DONT_TOUCH true [get_cells prc_1/U0/i_vsm_vs_main/current_state[1]_i_16]
 #set_property DONT_TOUCH true [get_cells axi_em_ctrl_1/U0/EMC_CTRL_I/MEM_STATE_MACHINE_I/wlast_reg_i_3]
@@ -570,36 +609,82 @@ set_property HD.RECONFIGURABLE true [get_cells sub_1]
 # User Generated physical constraints 
 
 create_pblock pblock_add_1
-add_cells_to_pblock [get_pblocks pblock_add_1] [get_cells -quiet [list add_1 dec_1 inc_1 sub_1]]
-resize_pblock [get_pblocks pblock_add_1] -add {SLICE_X92Y0:SLICE_X113Y49}
-resize_pblock [get_pblocks pblock_add_1] -add {DSP48_X3Y0:DSP48_X4Y19}
-resize_pblock [get_pblocks pblock_add_1] -add {RAMB18_X5Y0:RAMB18_X5Y19}
-resize_pblock [get_pblocks pblock_add_1] -add {RAMB36_X5Y0:RAMB36_X5Y9}
+add_cells_to_pblock [get_pblocks pblock_add_1] [get_cells -quiet [list add_1]]
+resize_pblock [get_pblocks pblock_add_1] -add {SLICE_X26Y135:SLICE_X31Y149}
+resize_pblock [get_pblocks pblock_add_1] -add {RAMB18_X2Y54:RAMB18_X2Y59}
+resize_pblock [get_pblocks pblock_add_1] -add {RAMB36_X2Y27:RAMB36_X2Y29}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_add_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_add_1]
 create_pblock pblock_comp_1
 add_cells_to_pblock [get_pblocks pblock_comp_1] [get_cells -quiet [list comp_1]]
-resize_pblock [get_pblocks pblock_comp_1] -add {SLICE_X36Y101:SLICE_X49Y149}
-create_pblock pblock_reg_1
-add_cells_to_pblock [get_pblocks pblock_reg_1] [get_cells -quiet [list reg_1]]
-resize_pblock [get_pblocks pblock_reg_1] -add {SLICE_X26Y51:SLICE_X35Y99}
-resize_pblock [get_pblocks pblock_reg_1] -add {RAMB18_X2Y22:RAMB18_X2Y39}
-resize_pblock [get_pblocks pblock_reg_1] -add {RAMB36_X2Y11:RAMB36_X2Y19}
-create_pblock pblock_shl_1
-add_cells_to_pblock [get_pblocks pblock_shl_1] [get_cells -quiet [list shl_1 shr_1]]
-resize_pblock [get_pblocks pblock_shl_1] -add {SLICE_X80Y103:SLICE_X95Y148}
-resize_pblock [get_pblocks pblock_shl_1] -add {DSP48_X3Y42:DSP48_X3Y57}
-resize_pblock [get_pblocks pblock_shl_1] -add {RAMB18_X4Y42:RAMB18_X4Y57}
-resize_pblock [get_pblocks pblock_shl_1] -add {RAMB36_X4Y21:RAMB36_X4Y28}
+resize_pblock [get_pblocks pblock_comp_1] -add {SLICE_X50Y139:SLICE_X55Y149}
+resize_pblock [get_pblocks pblock_comp_1] -add {RAMB18_X3Y56:RAMB18_X3Y59}
+resize_pblock [get_pblocks pblock_comp_1] -add {RAMB36_X3Y28:RAMB36_X3Y29}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_comp_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_comp_1]
+create_pblock pblock_dec_1
+add_cells_to_pblock [get_pblocks pblock_dec_1] [get_cells -quiet [list dec_1]]
+resize_pblock [get_pblocks pblock_dec_1] -add {SLICE_X80Y137:SLICE_X87Y149}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_dec_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_dec_1]
 create_pblock pblock_div_1
-add_cells_to_pblock [get_pblocks pblock_div_1] [get_cells -quiet [list div_1 mod_1 mul_1]]
-resize_pblock [get_pblocks pblock_div_1] -add {SLICE_X0Y0:SLICE_X25Y49}
-resize_pblock [get_pblocks pblock_div_1] -add {DSP48_X0Y0:DSP48_X1Y19}
-resize_pblock [get_pblocks pblock_div_1] -add {RAMB18_X0Y0:RAMB18_X1Y19}
-resize_pblock [get_pblocks pblock_div_1] -add {RAMB36_X0Y0:RAMB36_X1Y9}
+add_cells_to_pblock [get_pblocks pblock_div_1] [get_cells -quiet [list div_1]]
+resize_pblock [get_pblocks pblock_div_1] -add {SLICE_X96Y137:SLICE_X103Y148}
+resize_pblock [get_pblocks pblock_div_1] -add {DSP48_X4Y56:DSP48_X4Y57}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_div_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_div_1]
+create_pblock pblock_inc_1
+add_cells_to_pblock [get_pblocks pblock_inc_1] [get_cells -quiet [list inc_1]]
+resize_pblock [get_pblocks pblock_inc_1] -add {SLICE_X108Y139:SLICE_X113Y148}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_inc_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_inc_1]
+create_pblock pblock_mod_1
+add_cells_to_pblock [get_pblocks pblock_mod_1] [get_cells -quiet [list mod_1]]
+resize_pblock [get_pblocks pblock_mod_1] -add {SLICE_X38Y102:SLICE_X49Y115}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mod_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_mod_1]
+create_pblock pblock_mul_1
+add_cells_to_pblock [get_pblocks pblock_mul_1] [get_cells -quiet [list mul_1]]
+resize_pblock [get_pblocks pblock_mul_1] -add {SLICE_X58Y102:SLICE_X67Y115}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mul_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_mul_1]
 create_pblock pblock_mux_1
 add_cells_to_pblock [get_pblocks pblock_mux_1] [get_cells -quiet [list mux_1]]
-resize_pblock [get_pblocks pblock_mux_1] -add {SLICE_X50Y50:SLICE_X75Y0}
-resize_pblock [get_pblocks pblock_mux_1] -add {RAMB18_X3Y0:RAMB18_X3Y19}
-resize_pblock [get_pblocks pblock_mux_1] -add {RAMB36_X3Y0:RAMB36_X3Y9}
+resize_pblock [get_pblocks pblock_mux_1] -add {SLICE_X90Y103:SLICE_X93Y113}
+resize_pblock [get_pblocks pblock_mux_1] -add {RAMB18_X4Y42:RAMB18_X4Y43}
+resize_pblock [get_pblocks pblock_mux_1] -add {RAMB36_X4Y21:RAMB36_X4Y21}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_mux_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_mux_1]
+create_pblock pblock_reg_1
+add_cells_to_pblock [get_pblocks pblock_reg_1] [get_cells -quiet [list reg_1]]
+resize_pblock [get_pblocks pblock_reg_1] -add {SLICE_X26Y84:SLICE_X35Y99}
+resize_pblock [get_pblocks pblock_reg_1] -add {RAMB18_X2Y34:RAMB18_X2Y39}
+resize_pblock [get_pblocks pblock_reg_1] -add {RAMB36_X2Y17:RAMB36_X2Y19}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_reg_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_reg_1]
+create_pblock pblock_shl_1
+add_cells_to_pblock [get_pblocks pblock_shl_1] [get_cells -quiet [list shl_1]]
+resize_pblock [get_pblocks pblock_shl_1] -add {SLICE_X0Y34:SLICE_X11Y48}
+resize_pblock [get_pblocks pblock_shl_1] -add {RAMB18_X0Y14:RAMB18_X0Y17}
+resize_pblock [get_pblocks pblock_shl_1] -add {RAMB36_X0Y7:RAMB36_X0Y8}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_shl_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_shl_1]
+create_pblock pblock_shr_1
+add_cells_to_pblock [get_pblocks pblock_shr_1] [get_cells -quiet [list shr_1]]
+resize_pblock [get_pblocks pblock_shr_1] -add {SLICE_X34Y0:SLICE_X47Y18}
+resize_pblock [get_pblocks pblock_shr_1] -add {DSP48_X2Y0:DSP48_X2Y5}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_shr_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_shr_1]
+create_pblock pblock_sub_1
+add_cells_to_pblock [get_pblocks pblock_sub_1] [get_cells -quiet [list sub_1]]
+resize_pblock [get_pblocks pblock_sub_1] -add {SLICE_X50Y34:SLICE_X57Y50}
+resize_pblock [get_pblocks pblock_sub_1] -add {RAMB18_X3Y14:RAMB18_X3Y19}
+resize_pblock [get_pblocks pblock_sub_1] -add {RAMB36_X3Y7:RAMB36_X3Y9}
+set_property RESET_AFTER_RECONFIG true [get_pblocks pblock_sub_1]
+set_property SNAPPING_MODE ON [get_pblocks pblock_sub_1]
+
+# User Generated miscellaneous constraints 
+
 
 # Vivado Generated miscellaneous constraints 
 

@@ -127,12 +127,6 @@ set_input_jitter clk_fpga_0 0.600
 ############################################################################
 ############################################################################
 ############################################################################
-# Clock constraints                                                        #
-############################################################################
-current_instance -quiet
-set_input_jitter clk_fpga_0 0.600
-#The clocks are asynchronous, user should constrain them appropriately.#
-
 
 ############################################################################
 # I/O STANDARDS and Location Constraints                                   #
@@ -199,6 +193,7 @@ set_input_jitter clk_fpga_0 0.600
 
 
 # Customization
+current_instance -quiet
 set_property IOSTANDARD LVCMOS33 [get_ports comp_eq]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_gt]
 set_property IOSTANDARD LVCMOS33 [get_ports comp_lt]
