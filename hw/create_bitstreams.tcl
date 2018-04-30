@@ -55,4 +55,9 @@ open_checkpoint ${checkpoint}
 
 run_flow
 
-write_bitstream -force -file Bitstreams/${config}
+if { ${rt} == 0 } {
+  write_bitstream -force -file Bitstreams/${config}
+} else {
+  set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+  write_bitstream -force -file Bitstreams/${config}
+}
