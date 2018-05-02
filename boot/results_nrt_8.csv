@@ -1,0 +1,14 @@
+,Bitstream File,Jitter (s),Reconfiguration Time (s)
+0,nrt_8/config_full_nrt_pblock_mux_1_partial.bit,0.41953301429748535,0.8533049583435058
+1,nrt_8/config_full_nrt_pblock_mul_1_partial.bit,0.4940199851989746,0.8424891710281373
+2,nrt_8/config_full_nrt.bit,0.7083818912506104,5.43750364780426
+3,nrt_8/config_full_nrt_pblock_mod_1_partial.bit,0.5037438869476318,0.906975245475769
+4,nrt_8/config_full_nrt_pblock_sub_1_partial.bit,0.5246729850769043,1.1716429471969605
+5,nrt_8/config_full_nrt_pblock_inc_1_partial.bit,0.5857391357421875,0.8061571836471557
+6,nrt_8/config_full_nrt_pblock_add_1_partial.bit,0.49398088455200195,0.8891653060913086
+7,nrt_8/config_full_nrt_pblock_shl_1_partial.bit,0.8385012149810791,1.1519021272659302
+8,nrt_8/config_full_nrt_pblock_dec_1_partial.bit,0.3681039810180664,0.7882006406784058
+9,nrt_8/config_full_nrt_pblock_reg_1_partial.bit,0.8070971965789795,1.1774789333343505
+10,nrt_8/config_full_nrt_pblock_comp_1_partial.bit,0.5176489353179932,0.8720450639724732
+11,nrt_8/config_full_nrt_pblock_div_1_partial.bit,0.7619121074676514,0.8849741220474243
+12,nrt_8/config_full_nrt_pblock_shr_1_partial.bit,2.0557568073272705,1.5246989250183105

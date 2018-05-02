@@ -5,6 +5,7 @@
 *.str
 *.html
 *.xml
+*.~lock*
 os
 hw/Bitstreams
 hw/Checkpoint

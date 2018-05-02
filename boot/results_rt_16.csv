@@ -1,0 +1,14 @@
+,Bitstream File,Jitter (s),Reconfiguration Time (s)
+0,rt_16/config_full_rt_pblock_shr_1_partial.bit,0.34856700897216797,0.21092543601989747
+1,rt_16/config_full_rt_pblock_reg_1_partial.bit,0.28811168670654297,0.21688408851623536
+2,rt_16/config_full_rt_pblock_comp_1_partial.bit,0.2949790954589844,0.19125478267669677
+3,rt_16/config_full_rt.bit,2.235156774520874,2.1759214639663695
+4,rt_16/config_full_rt_pblock_sub_1_partial.bit,0.2239680290222168,0.7686778545379639
+5,rt_16/config_full_rt_pblock_div_1_partial.bit,0.7451770305633545,0.7735239505767822
+6,rt_16/config_full_rt_pblock_shl_1_partial.bit,0.44257402420043945,0.7667488336563111
+7,rt_16/config_full_rt_pblock_mux_1_partial.bit,0.310060977935791,0.7185971975326538
+8,rt_16/config_full_rt_pblock_inc_1_partial.bit,0.6759190559387207,0.7722266435623169
+9,rt_16/config_full_rt_pblock_dec_1_partial.bit,0.6837313175201416,0.7068702459335328
+10,rt_16/config_full_rt_pblock_add_1_partial.bit,0.47360682487487793,0.6753641366958618
+11,rt_16/config_full_rt_pblock_mul_1_partial.bit,0.8305168151855469,0.7362658500671386
+12,rt_16/config_full_rt_pblock_mod_1_partial.bit,0.8623099327087402,0.848081398010254

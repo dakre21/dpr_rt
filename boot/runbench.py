@@ -18,7 +18,7 @@ def prog(results, bit_files, latency):
   files     = []
   jitter    = []
   treconfig = []
-  iters     = 1
+  iters     = 10
 
   
   for f in bit_files:
@@ -26,7 +26,8 @@ def prog(results, bit_files, latency):
     tmp = []
     for i in range(iters):
       time_start = time.time()
-      subprocess.call("xsdb -eval 'connect; fpga -f %s'" % f,shell=True)
+      p = subprocess.Popen("xsdb -eval 'connect; fpga -f %s'" % f, shell=True)
+      p.wait()
       time_diff = time.time() - time_start
       tmp.append(time_diff)
 
@@ -37,15 +38,12 @@ def prog(results, bit_files, latency):
     treconfig.append(total/len(tmp))
     jitter.append(max(tmp) - min(tmp))
 
-  print files
-  print jitter
-  print treconfig
-  
+
   # Save results to csv
   df = pd.DataFrame({
       "Bitstream File" : files,
-      "Reconfiguration Time (us)" : treconfig,
-      "Jitter (us)" : jitter
+      "Reconfiguration Time (s)" : treconfig,
+      "Jitter (s)" : jitter
       })
   df.to_csv(results)
 
@@ -70,7 +68,7 @@ def main():
   files = []
   for f in os.listdir(rt8):
     if f.endswith(".bit"):
-      files.append(os.path.join(nrt8, f)) 
+      files.append(os.path.join(rt8, f)) 
 
 
   prog("results_%s.csv" % rt8, files, latency)
@@ -78,7 +76,7 @@ def main():
   files = []
   for f in os.listdir(rt16):
     if f.endswith(".bit"):
-      files.append(os.path.join(nrt8, f)) 
+      files.append(os.path.join(rt16, f)) 
 
 
   prog("results_%s.csv" % rt16, files, latency)
